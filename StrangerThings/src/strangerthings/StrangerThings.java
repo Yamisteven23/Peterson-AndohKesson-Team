@@ -6,6 +6,7 @@
 package strangerthings;
 
 import project.strangerThings.model.Player;
+import project.strangerThings.model.Scene;
 
 /**
  *
@@ -24,6 +25,20 @@ public class StrangerThings {
        
        String playerInfo = playerOne.toString();
        System.out.println(playerInfo);
+       
+       //Scene
+       Scene sceneOne = new Scene();
+       
+       sceneOne.setDescription("You are in the forest. You hear a noise but it "
+               + "becomes faint and you ignore it. There may be some useful items"
+               + " around here");
+       sceneOne.setMapSymbol("^^");
+       
+       String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
+       
+       
     } 
+    
     
 }

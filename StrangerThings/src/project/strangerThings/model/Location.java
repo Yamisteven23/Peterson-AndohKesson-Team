@@ -12,9 +12,9 @@ import java.io.Serializable;
  * @author Yamisteven23
  */
 public class Location implements Serializable{
-    private double row;
-    private double column;
-    private double visited;
-    private double amountRemaining;
+    private long row;
+    private long column;
+    private long visited;
+    private long amountRemaining;
     
 }

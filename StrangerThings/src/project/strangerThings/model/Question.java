@@ -5,10 +5,14 @@
  */
 package project.strangerThings.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Yamisteven23
  */
-public class Question {
-    
+public class Question implements Serializable{
+    private String question;
+    private String answer;
+    private String correctAnswer;
 }
