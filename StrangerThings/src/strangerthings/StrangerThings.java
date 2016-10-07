@@ -24,6 +24,10 @@ public class StrangerThings {
        
        String playerInfo = playerOne.toString();
        System.out.println(playerInfo);
+       
+       
     } 
+    
+    
     
 }
