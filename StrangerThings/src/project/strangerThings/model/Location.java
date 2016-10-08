@@ -5,10 +5,16 @@
  */
 package project.strangerThings.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Yamisteven23
  */
-public class Location {
+public class Location implements Serializable{
+    private long row;
+    private long column;
+    private long visited;
+    private long amountRemaining;
     
 }
