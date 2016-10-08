@@ -108,9 +108,7 @@ public class Item implements Serializable{
         return "Item{" + "name=" + name + ", description=" + description + ", type=" + type + ", power=" + power + ", quantity=" + quantity + '}';
     }
 
-    public void setPower(String _4) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     

@@ -95,9 +95,7 @@ public class Character implements Serializable{
         return "Character{" + "name=" + name + ", numLives=" + numLives + ", description=" + description + ", location=" + location + '}';
     }
 
-    public void setLocation(String _4) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     

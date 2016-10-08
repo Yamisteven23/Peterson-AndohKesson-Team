@@ -55,9 +55,7 @@ public class Game implements Serializable{
         return "Game{" + "timePlayed=" + timePlayed + '}';
     }
 
-    public void setTimePlayed(String _minutes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     
