@@ -73,7 +73,7 @@ public class StrangerThings {
        characterOne.setName("Enock");
        characterOne.setNumLives(3);
        characterOne.setDescription("The oldest of the group");
-       characterOne.setLocation("3, 4");
+       
        
        String characterInfo = characterOne.toString();
        System.out.println(characterInfo);
@@ -82,7 +82,7 @@ public class StrangerThings {
        // Game Instance 
        Game gameOne = new Game();
        
-       gameOne.setTimePlayed("24 minutes");
+      gameOne.setTimePlayed(24);
        
        
        String gameInfo = gameOne.toString();
@@ -94,7 +94,7 @@ public class StrangerThings {
        itemOne.setName("Hockey Stick");
        itemOne.setDescription("Made of Steel with a rounded and curved edges");
        itemOne.setType("Weapon");
-       itemOne.setPower("4000");
+       itemOne.setPower(4000);
        itemOne.setQuantity(1);
        
        String itemInfo = itemOne.toString();
