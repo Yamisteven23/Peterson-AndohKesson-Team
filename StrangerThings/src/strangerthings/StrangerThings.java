@@ -9,6 +9,10 @@ import project.strangerThings.model.Location;
 import project.strangerThings.model.Player;
 import project.strangerThings.model.Question;
 import project.strangerThings.model.Scene;
+import project.strangerThings.model.Character;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.Map;
+import project.strangerThings.model.Game;
 
 /**
  *
@@ -20,6 +24,7 @@ public class StrangerThings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Player
        Player playerOne = new Player();
        
        playerOne.setName("Enock");
@@ -60,6 +65,49 @@ public class StrangerThings {
         
         String locationInfo = locationOne.toString();
         System.out.println(locationInfo);
+        
+        
+       // Character Instance 
+       Character characterOne = new Character();
+       
+       characterOne.setName("Enock");
+       characterOne.setNumLives(3);
+       characterOne.setDescription("The oldest of the group");
+       characterOne.setLocation("3, 4");
+       
+       String characterInfo = characterOne.toString();
+       System.out.println(characterInfo);
+       
+       
+       // Game Instance 
+       Game gameOne = new Game();
+       
+       gameOne.setTimePlayed("24 minutes");
+       
+       
+       String gameInfo = gameOne.toString();
+       System.out.println(gameInfo);
+       
+       // Item Instance 
+       Item itemOne = new Item();
+       
+       itemOne.setName("Hockey Stick");
+       itemOne.setDescription("Made of Steel with a rounded and curved edges");
+       itemOne.setType("Weapon");
+       itemOne.setPower("4000");
+       itemOne.setQuantity(1);
+       
+       String itemInfo = itemOne.toString();
+       System.out.println(itemInfo);
+       
+        // Map Instance 
+       Map mapOne = new Map();
+       
+       mapOne.setColumnCount(4);
+       mapOne.setRowCount(3);
+       
+       String mapInfo = mapOne.toString();
+       System.out.println(mapInfo);
         
         
         
