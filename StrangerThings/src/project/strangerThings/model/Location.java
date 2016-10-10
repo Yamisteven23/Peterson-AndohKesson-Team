@@ -19,8 +19,6 @@ public class Location implements Serializable{
 
     public Location() {
     }
-    
-    
 
     public long getRow() {
         return row;
@@ -57,10 +55,10 @@ public class Location implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + (int) (this.row ^ (this.row >>> 32));
-        hash = 29 * hash + (int) (this.column ^ (this.column >>> 32));
-        hash = 29 * hash + (int) (this.visited ^ (this.visited >>> 32));
-        hash = 29 * hash + (int) (this.amountRemaining ^ (this.amountRemaining >>> 32));
+        hash = 37 * hash + (int) (this.row ^ (this.row >>> 32));
+        hash = 37 * hash + (int) (this.column ^ (this.column >>> 32));
+        hash = 37 * hash + (int) (this.visited ^ (this.visited >>> 32));
+        hash = 37 * hash + (int) (this.amountRemaining ^ (this.amountRemaining >>> 32));
         return hash;
     }
 
@@ -92,8 +90,7 @@ public class Location implements Serializable{
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
-    
-    
-    
+
+   
     
 }

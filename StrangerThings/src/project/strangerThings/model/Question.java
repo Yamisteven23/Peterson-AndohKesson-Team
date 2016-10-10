@@ -19,8 +19,7 @@ public class Question implements Serializable{
 
     public Question() {
     }
-    
-    
+
     public String getQuestion() {
         return question;
     }
@@ -47,10 +46,10 @@ public class Question implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.question);
-        hash = 97 * hash + Objects.hashCode(this.answer);
-        hash = 97 * hash + Objects.hashCode(this.correctAnswer);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.question);
+        hash = 53 * hash + Objects.hashCode(this.answer);
+        hash = 53 * hash + Objects.hashCode(this.correctAnswer);
         return hash;
     }
 
@@ -72,18 +71,13 @@ public class Question implements Serializable{
         if (!Objects.equals(this.answer, other.answer)) {
             return false;
         }
-        if (!Objects.equals(this.correctAnswer, other.correctAnswer)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.correctAnswer, other.correctAnswer);
     }
 
     @Override
     public String toString() {
         return "Question{" + "question=" + question + ", answer=" + answer + ", correctAnswer=" + correctAnswer + '}';
     }
-    
-    
-    
+
     
 }
