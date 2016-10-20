@@ -50,5 +50,62 @@ public class MapControl {
     
     return 1;
     }
+    
+    public long fightMonster ( long hits, long powerLevel, long monsterHealth ){
+   /* 
+   IF (hits < 2) THEN 
+	RETURN -1
+IF (hit > 3) THEN
+	RETURN -2
+IF (powerLevel < 27) THEN
+	RETURN -3
+IF (powerLevel > 40) THEN
+	RETURN -4
+IF (monsterHealth < 0) THEN 
+	RETURN -5
+IF (monsterHealth > 70) THEN 
+RETURN -6
+IF (monsterHealth == 0) THEN
+	RETURN 1
+fightMonster =(hits * powerLevel) - monsterHealth 
+IF (fightMonster == monsterHealth || fightMonster > monsterHealth) THEN
+	RETURN 1
+ELSE 
+	RETURN 0
+END
+ 
+  */
+   if (hits < 2){
+       return -1;
+   }
    
+   if (hits > 3){
+       return -2;
+   }
+   
+   if (powerLevel < 27){
+       return -3;
+   }
+   
+   if (powerLevel > 40){
+       return -4;
+   }
+   
+   if (monsterHealth < 0){
+       return -5;
+   }
+   
+   if (monsterHealth > 70){
+       return -6;
+   }
+    
+   long fightMonster = (hits * powerLevel) - monsterHealth;
+   
+   if ( fightMonster == monsterHealth || fightMonster > monsterHealth){
+        return 1;
+   }
+   else 
+        return 0;  
+   }
+    
 }
