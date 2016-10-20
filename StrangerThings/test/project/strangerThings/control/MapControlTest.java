@@ -93,5 +93,50 @@ public class MapControlTest {
         
         
     }
+
+    /**
+     * Test of fightMonster method, of class MapControl.
+     */
+    @Test
+    public void testFightMonster() {
+        System.out.println("fightMonster");
+        
+        //Test #1
+         System.out.println("\tTest 1");
+         
+        //Inputs values
+        
+        long hits = 2;
+        long powerLevel = 27;
+        long monsterHealth = 60;
+        
+        //instance of MapControl
+        MapControl instance = new MapControl();
+        long expResult = 0;
+        
+        //call function to run
+        long result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        //Test #2
+         System.out.println("\tTest 2");
+         
+        //Inputs values
+        
+         hits = 2;
+         powerLevel = 40;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = 1;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
     
 }
