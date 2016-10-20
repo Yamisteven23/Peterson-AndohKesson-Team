@@ -51,4 +51,39 @@ public class MapControl {
     return 1;
     }
    
+    //The Shack
+    /*Algorithm
+theShackTest(rn,rn2,userAnswer)
+BEGIN
+IF (userAnswer < 1 OR userAnswer >999) THEN
+	RETURN -1
+IF (rn < 22 OR rn >2000) THEN
+	RETURN -2
+IF (rn2 < 1 OR rn2 > 10) THEN
+	RETURN -3
+equation = (rn/2) – rn2
+IF (equation does not equal userAnswer) THEN
+	RETURN 2
+ELSE
+	RETURN 0 
+END*/
+    public long openTheShack(long rn, long rn2, long userAnswer){
+   
+    if (userAnswer < 1 || userAnswer > 999){
+        return -1;
+    }
+    if (rn < 22 || rn > 2000){
+        return -2;  
+    }
+    if (rn2 < 1 || rn2 > 10){
+        return -3;
+    }    
+   long equation = (rn/2) - rn2;
+    
+    if (equation != userAnswer){
+        return 2;
+    }
+    else
+        return 0;
+    }
 }
