@@ -37,6 +37,61 @@ public class MapControlTest {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
         
+        //Test 2
+        System.out.println("\tTest 2");
+        //Inputs values for test 2
+        time = 106;
+        distance = 400;
+        //instance of map control
+        instance = new MapControl();
+         expResult = 0; // expected output returned value
+        //call function to run test
+        result = instance.runFromMonster(time, distance);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        
+         //Test 3
+        System.out.println("\tTest 3");
+        //Inputs values for test 3
+        time = 70;
+        distance = 350;
+        //instance of map control
+        instance = new MapControl();
+         expResult = -1; // expected output returned value
+        //call function to run test
+        result = instance.runFromMonster(time, distance);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+         //Test 4
+        System.out.println("\tTest 4");
+        //Inputs values for test 4
+        time = -1;
+        distance = 400;
+        //instance of map control
+        instance = new MapControl();
+         expResult = -2; // expected output returned value
+        //call function to run test
+        result = instance.runFromMonster(time, distance);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+         //Test 5
+        System.out.println("\tTest 5");
+        //Inputs values for test 5
+        time = 60;
+        distance = 400;
+        //instance of map control
+        instance = new MapControl();
+         expResult = 1; // expected output returned value
+        //call function to run test
+        result = instance.runFromMonster(time, distance);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        
+        
     }
     
 }
