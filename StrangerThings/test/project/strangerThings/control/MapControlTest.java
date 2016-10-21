@@ -286,5 +286,125 @@ public class MapControlTest {
         // TODO review the generated test code and remove the default call to fail.
          
     }
+     * Test of openTheShack method, of class MapControl.
+     */
+    @Test
+    
+    public void testOpenTheShack() {
+        System.out.println("openTheShack");
+        //Test 1
+        System.out.println("\t Test 1");
+        //inputs
+        long rn = 60L;
+        long rn2 = 5L;
+        long userAnswer = 25L;
+        MapControl instance = new MapControl();
+        long expResult = 0L;
+        long result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 2
+        System.out.println("\t Test 2");
+        //inputs
+        rn = 60L;
+        rn2 = 5L;
+        userAnswer = 26L;
+        instance = new MapControl();
+        expResult = 2L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 3
+        System.out.println("\t Test 3");
+        //inputs
+        rn = 60L;
+        rn2 = 5L;
+        userAnswer = -20L;
+        instance = new MapControl();
+        expResult = -1L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 4
+        System.out.println("\t Test 4");
+        //inputs
+        rn = 60L;
+        rn2 = 5L;
+        userAnswer = 1000L;
+        instance = new MapControl();
+        expResult = -1L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 5
+        System.out.println("\t Test 5");
+        //inputs
+        rn = 21L;
+        rn2 = 5L;
+        userAnswer = 25L;
+        instance = new MapControl();
+        expResult = -2L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 6
+        System.out.println("\t Test 6");
+        //inputs
+        rn = 2001L;
+        rn2 = 5L;
+        userAnswer = 25L;
+        instance = new MapControl();
+        expResult = -2L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 7
+        System.out.println("\t Test 7");
+        //inputs
+        rn = 60L;
+        rn2 = 0L;
+        userAnswer = 25L;
+        instance = new MapControl();
+        expResult = -3L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 8
+        System.out.println("\t Test 8");
+        //inputs
+        rn = 60L;
+        rn2 = 11L;
+        userAnswer = 25L;
+        instance = new MapControl();
+        expResult = -3L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 9
+        System.out.println("\t Test 9");
+        //inputs
+        rn = 22L;
+        rn2 = 1L;
+        userAnswer = 10L;
+        instance = new MapControl();
+        expResult = 0L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+        
+        //Test 10
+        System.out.println("\t Test 10");
+        //inputs
+        rn = 2000L;
+        rn2 = 10L;
+        userAnswer = 990L;
+        instance = new MapControl();
+        expResult = 0L;
+        result = instance.openTheShack(rn, rn2, userAnswer);
+        assertEquals(expResult, result);
+
+        
+    }
+    
+    
     
 }
