@@ -10,9 +10,9 @@ package project.strangerThings.control;
  * @author Isaac
  */
 public class MapControl {
-    
-    public long runFromMonster( long time, long distance){
-    /*
+
+    public long runFromMonster(long time, long distance) {
+        /*
         if (time > 105) then
                 Return 0
         if (distance < 400 OR distance > 400) then
@@ -28,31 +28,31 @@ public class MapControl {
                 Return 1
         
          END
-*/
-    if (time > 105) {
-        
-        return 0;
+         */
+        if (time > 105) {
+
+            return 0;
+        }
+
+        if (distance < 400 || distance > 400) {
+
+            return -1;
+        }
+
+        if (time < 60) {
+
+            return -2;
+        }
+
+        long playerVelocity = distance / time;
+        long monsterVelocity = (long) 3.77;
+        long getAway = playerVelocity - monsterVelocity;
+
+        return 1;
     }
-    
-    if (distance < 400 || distance > 400){
-         
-        return -1;
-    }
-    
-    if (time < 60 ){
-        
-        return -2;
-    }
-    
-    long playerVelocity = distance/time;
-    long monsterVelocity = (long) 3.77;
-    long getAway = playerVelocity - monsterVelocity;
-    
-    return 1;
-    }
-    
-    public long fightMonster ( long hits, long powerLevel, long monsterHealth ){
-   /* 
+
+    public long fightMonster(long hits, long powerLevel, long monsterHealth) {
+        /* 
    IF (hits < 2) THEN 
 	RETURN -1
 IF (hit > 3) THEN
@@ -74,42 +74,42 @@ ELSE
 	RETURN 0
 END
  
-  */
-   if (hits < 2){
-       return -1;
-   }
-   
-   if (hits > 3){
-       return -2;
-   }
-   
-   if (powerLevel < 27){
-       return -3;
-   }
-   
-   if (powerLevel > 40){
-       return -4;
-   }
-   
-   if (monsterHealth < 0){
-       return -5;
-   }
-   
-   if (monsterHealth > 70){
-       return -6;
-   }
-   
-   long powerStrength = (hits * powerLevel);
-   
-   long fightMonster = monsterHealth - powerStrength;
-   
-   if ( monsterHealth < powerStrength){
-        return 1;
-   }
-   else 
-        return 0;  
-   }
-    
+         */
+        if (hits < 2) {
+            return -1;
+        }
+
+        if (hits > 3) {
+            return -2;
+        }
+
+        if (powerLevel < 27) {
+            return -3;
+        }
+
+        if (powerLevel > 40) {
+            return -4;
+        }
+
+        if (monsterHealth < 0) {
+            return -5;
+        }
+
+        if (monsterHealth > 70) {
+            return -6;
+        }
+
+        long powerStrength = (hits * powerLevel);
+
+        long fightMonster = monsterHealth - powerStrength;
+
+        if (monsterHealth < powerStrength) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     //The Shack
     /*Algorithm
 theShackTest(rn,rn2,userAnswer)
@@ -126,23 +126,23 @@ IF (equation does not equal userAnswer) THEN
 ELSE
 	RETURN 0 
 END*/
-    public long openTheShack(long rn, long rn2, long userAnswer){
-   
-    if (userAnswer < 1 || userAnswer > 999){
-        return -1;
-    }
-    if (rn < 22 || rn > 2000){
-        return -2;  
-    }
-    if (rn2 < 1 || rn2 > 10){
-        return -3;
-    }    
-   long equation = (rn/2) - rn2;
-    
-    if (equation != userAnswer){
-        return 2;
-    }
-    else
-        return 0;
+    public long openTheShack(long rn, long rn2, long userAnswer) {
+
+        if (userAnswer < 1 || userAnswer > 999) {
+            return -1;
+        }
+        if (rn < 22 || rn > 2000) {
+            return -2;
+        }
+        if (rn2 < 1 || rn2 > 10) {
+            return -3;
+        }
+        long equation = (rn / 2) - rn2;
+
+        if (equation != userAnswer) {
+            return 2;
+        } else {
+            return 0;
+        }
     }
 }
