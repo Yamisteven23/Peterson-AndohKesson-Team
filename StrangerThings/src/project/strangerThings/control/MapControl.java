@@ -98,10 +98,12 @@ END
    if (monsterHealth > 70){
        return -6;
    }
-    
-   long fightMonster = (hits * powerLevel) - monsterHealth;
    
-   if ( fightMonster == monsterHealth || fightMonster > monsterHealth){
+   long powerStrength = (hits * powerLevel);
+   
+   long fightMonster = monsterHealth - powerStrength;
+   
+   if ( monsterHealth < powerStrength){
         return 1;
    }
    else 

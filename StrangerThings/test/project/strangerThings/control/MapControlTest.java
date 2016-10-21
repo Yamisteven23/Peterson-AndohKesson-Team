@@ -137,6 +137,154 @@ public class MapControlTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         
+        
+        //Test #3
+         System.out.println("\tTest 3");
+         
+        //Inputs values
+        
+         hits = 0;
+         powerLevel = 40;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -1;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        
+        //Test #4
+         System.out.println("\tTest 4");
+         
+        //Inputs values
+        
+         hits = 4;
+         powerLevel = 40;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -2;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        //Test #5
+         System.out.println("\tTest 5");
+         
+        //Inputs values
+        
+         hits = 2;
+         powerLevel = 26;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -3;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        //Test #6
+         System.out.println("\tTest 6");
+         
+        //Inputs values
+        
+         hits = 3;
+         powerLevel = 41;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -4;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        //Test #7
+         System.out.println("\tTest 7");
+         
+        //Inputs values
+        
+         hits = 2;
+         powerLevel = 27;
+         monsterHealth = -1;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -5;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+       //Test #8
+         System.out.println("\tTest 8");
+         
+        //Inputs values
+        
+         hits = 3;
+         powerLevel = 40;
+         monsterHealth = 71;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = -6;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+         
+        
+        //Test #9
+         System.out.println("\tTest 9");
+         
+        //Inputs values
+        
+         hits = 2;
+         powerLevel = 27;
+         monsterHealth = 0;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = 1;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+         
+        
+         //Test #10
+         System.out.println("\tTest 10");
+         
+        //Inputs values
+        
+         hits = 3;
+         powerLevel = 40;
+         monsterHealth = 70;
+        
+        //instance of MapControl
+        instance = new MapControl();
+        expResult = 1;
+        
+        //call function to run
+        result = instance.fightMonster(hits, powerLevel, monsterHealth);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+         
     }
     
 }
