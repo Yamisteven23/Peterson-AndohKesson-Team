@@ -21,8 +21,8 @@ public class StartProgramView {
 
     private void displayBanner() {
         System.out.println(
-        "\n**********************************************"
-       +"\n*                                            *"
+        "\n**************************************************************"
+       +"\n*                                                            *"
        +"\nStranger Things! is a text based role playing "
        +"\ngame from the events in the Netflix original "
        +"\nseries Stranger Things. You will be taking the "
@@ -46,11 +46,34 @@ public class StartProgramView {
        +"\nthe map there will be items placed that you can find in order "
        +"\nto make your master weapon. The route you take and rhe weapon "
        +"\nyou make is up to you."
-       +"\n**********************************************"
+       +"\n*                                                            *"
+       +"\n**************************************************************"
         
        /**/
         
         );
+    }
+
+    public void displayStartProgramView() {
+        
+        boolean done = false;
+        do{
+            String playerName = this.getPlayerName();
+            if (playerName.toUpperCase().equals("Q"))
+                return;
+            
+            done = this.doAction(playerName);
+        } while (!done);
+    }
+
+    private String getPlayerName() {
+        System.out.println("\n*** getPlayerName() called ***");
+        return "Joe";
+    }
+
+    private boolean doAction(String playerName) {
+        System.out.println("\n*** doAction() called ***");
+        return true;
     }
     
     
