@@ -5,6 +5,10 @@
  */
 package project.strangerThings.view;
 
+import java.util.Scanner;
+import project.strangerThings.control.GameControl;
+import project.strangerThings.model.Player;
+
 /**
  *
  * @author Yamisteven23
@@ -67,13 +71,50 @@ public class StartProgramView {
     }
 
     private String getPlayerName() {
-        System.out.println("\n*** getPlayerName() called ***");
-        return "Joe";
+        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        String value = ""; //value to be returned
+        boolean valid = false; //initalize to not valid
+        
+        while (!valid) {
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine(); //get next line typed by keyboard
+            value = value.trim(); //trim off leading and trailing whitespace
+            
+            if (value.length() < 1){ //value is blank
+                System.out.println("\nINvalid value; value cannot be blank");
+                continue;
+            }
+            break; //end the loop
+            
+        }
+        return value; //return the value entered
     }
 
     private boolean doAction(String playerName) {
-        System.out.println("\n*** doAction() called ***");
+        if (playerName.length() < 2){
+            System.out.println("\nInvalid player name;"
+                + "The name must be greater than one character in length");
+            return false;
+        
+        }
+        //call createPlayer() control function
+        Player player = GameControl.createPlayer(playerName);
+
+
+        
+        if (player == null){ //if unseccessful
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+        //display next view
+        this.displayNextView(player);
         return true;
+    }
+
+    private void displayNextView(Player player) {
+        System.out.println("\n*** displayNextView() called ***");
+        
     }
     
     
