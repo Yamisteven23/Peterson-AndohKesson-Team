@@ -82,7 +82,7 @@ public class StartProgramView {
             value = value.trim(); //trim off leading and trailing whitespace
             
             if (value.length() < 1){ //value is blank
-                System.out.println("\nINvalid value; value cannot be blank");
+                System.out.println("\nInvalid value; value cannot be blank");
                 continue;
             }
             break; //end the loop
