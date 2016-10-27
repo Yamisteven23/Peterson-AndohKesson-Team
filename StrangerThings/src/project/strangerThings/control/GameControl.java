@@ -6,6 +6,7 @@
 package project.strangerThings.control;
 
 import project.strangerThings.model.Player;
+import strangerthings.StrangerThings;
 
 /**
  *
@@ -14,8 +15,17 @@ import project.strangerThings.model.Player;
 public class GameControl {
 
     public static Player createPlayer(String playerName) {
-        System.out.println("\n***createPlayer called ***");
-        return new Player();
+        if (playerName == null){
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(playerName);
+        
+        StrangerThings.setPlayer(player);
+        
+        return player;
+    
     }
     
 }

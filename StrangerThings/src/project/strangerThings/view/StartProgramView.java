@@ -100,8 +100,6 @@ public class StartProgramView {
         }
         //call createPlayer() control function
         Player player = GameControl.createPlayer(playerName);
-
-
         
         if (player == null){ //if unseccessful
             System.out.println("\nError creating the player.");
@@ -113,7 +111,14 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n*** displayNextView() called ***");
+        System.out.println("\n==============================================="
+                          +"\n Welcome to Stanger Things! " +player.getName()
+                          +"\n We wish you luck!"
+                          +"\n==============================================="
+                          );
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        mainMenuView.displayMainMenuView();
         
     }
     

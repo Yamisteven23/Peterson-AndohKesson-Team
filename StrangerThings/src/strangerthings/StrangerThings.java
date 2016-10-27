@@ -24,6 +24,27 @@ public class StrangerThings {
     /**
      * @param args the command line arguments
      */
+    
+    private static Game currentGame = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        StrangerThings.currentGame = currentGame;
+    }
+    
+    private static Player player = null;
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        StrangerThings.player = player;
+    }
+    
     public static void main(String[] args) {
         //create StartProgramViewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
