@@ -6,6 +6,8 @@
 package project.strangerThings.view;
 
 import java.util.Scanner;
+import project.strangerThings.control.GameControl;
+import strangerthings.StrangerThings;
 
 /**
  *
@@ -30,7 +32,7 @@ public class MainMenuView {
     public MainMenuView() {
         this.menu = "\n"
                     +"\n----------------------------------"
-                    +"\n| Main Menu                      |"
+                    +"\n|         Main Menu              |"
                     +"\n----------------------------------"
                     +"\nN- New Game"
                     +"\nR- Restore existing game"
@@ -81,7 +83,10 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("\n*** startNewGame() function called  ***");
+        GameControl.createNewGame(StrangerThings.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void restoreExistingGame() {
@@ -89,7 +94,8 @@ public class MainMenuView {
     }
 
     private void helpMenu() {
-        System.out.println("\n*** helpMenu() function called  ***");
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
     
 }
