@@ -32,10 +32,10 @@ public class HelpMenuView {
                     +"\n|         Help Menu              |"
                     +"\n----------------------------------"
                     +"\nG- Goal of the Game"
-                    +"\nS- Backstory of Stranger Things"
+                    +"\nB- Backstory of Stranger Things"
                     +"\nM- How to Move"
                     +"\nL- List of inventory on map"
-                    +"\nB- How to manufacture upgraded weapons"
+                    +"\nU- How to manufacture upgraded weapons"
                     +"\nE-Exit"
                     +"\n----------------------------------";
     }
@@ -65,19 +65,20 @@ public class HelpMenuView {
        String choice = helpMenuOption.toUpperCase();
         //change
         switch (choice){
-            case "G": //create new game
+            case "G": //Goal of the Game
                 this.goalOfGame();
                 break;
-            case "S": //restore existing game
+            case "B": //Backstory of TV show
                 this.backstory();
                 break;
-            case "M": //Help Menu
+            case "M": //how to move
                 this.howToMove();
                 break;
-            case "L": //Help Menu
+            case "L": //inventory list
                 this.inventoryList();
                 break;
-            case "B": //Help Menu
+            case "U": //how to manufacture upgraded weaponssteve
+                
                 this.upgradeWeapon();
                 break;
             default:
@@ -102,6 +103,7 @@ public class HelpMenuView {
        +"\n* to complete the game. Take one wrong turn you lose a life     *"
        +"\n* or the game will be over. You have three lives. Use them      *"
        +"\n* wisely and good luck on your adventure!                       *"
+       +"\n*                                                               *"
        +"\n*****************************************************************"
         
         
@@ -118,6 +120,7 @@ public class HelpMenuView {
        +"\n* girl who helps his friends in their search. While the boy's   *"
        +"\n* older brother, his mother, and the town police sheriff start  *"
        +"\n* their own investigations.                                     *"
+       +"\n*                                                               *"
        +"\n*****************************************************************"
         
         
@@ -128,34 +131,12 @@ public class HelpMenuView {
         System.out.println(
         "\n*****************************************************************"
        +"\n*                                                               *"
-       +"\n* Stranger Things! is a text based role playing                 *"
-       +"\n* game from the events in the Netflix original                  *"
-       +"\n* series Stranger Things. You will be taking the                *"
-       +"\n* role of 3 children named Mike, Lucas, and Dustin.             *"
-       +"\n* One of thier friends went missing and Mike, Lucas             *"
-       +"\n* and Dustin suspect foul play. While investigating             *"
-       +"\n* they cross paths with another child named Eleven who          *"
-       +"\n* has telekinesis powers. She helps Mike, Lucas, and            *"
-       +"\n* Dustin discover that their friend was taken by a monster!     *"
-       +"\n* They will have to devise a rescue plan to find a way          *"
-       +"\n* to defeat the monster while avoiding the government           *"
-       +"\n* and the Sheriff. While on your journey you lost Eleven,       *"
-       +"\n* but are still looking for the required items to defeat        *"
-       +"\n* the monster. If the government finds you then you will        *"
-       +"\n* be taken. If the local sheriff finds you then he will         *"
-       +"\n* send you home. As you explore the map you will search         *"
-       +"\n* for the required items to build your master weapon. In        *"
-       +"\n* this game you will start your journey with a flashlight,      *"
-       +"\n* a shovel, and a backpack. You will move as a team in order    *"
-       +"\n* to accomplish your goal of defeating the monster. Throughout  *"
-       +"\n* the map there will be items placed that you can find in order *"
-       +"\n* to make your master weapon. The route you take and rhe weapon *"
-       +"\n* you make is up to you.                                        *"
+       +"\n* The characters will all be moving together as a team one      *"
+       +"\n* space at a time. When prompted you will be asked to enter     *"
+       +"\n* N for north, E for East, S for south or W for west.           *"
        +"\n*                                                               *"
        +"\n*****************************************************************"
-        
-       /**/
-        
+                
         );
     }
 
@@ -163,33 +144,12 @@ public class HelpMenuView {
         System.out.println(
         "\n*****************************************************************"
        +"\n*                                                               *"
-       +"\n* Stranger Things! is a text based role playing                 *"
-       +"\n* game from the events in the Netflix original                  *"
-       +"\n* series Stranger Things. You will be taking the                *"
-       +"\n* role of 3 children named Mike, Lucas, and Dustin.             *"
-       +"\n* One of thier friends went missing and Mike, Lucas             *"
-       +"\n* and Dustin suspect foul play. While investigating             *"
-       +"\n* they cross paths with another child named Eleven who          *"
-       +"\n* has telekinesis powers. She helps Mike, Lucas, and            *"
-       +"\n* Dustin discover that their friend was taken by a monster!     *"
-       +"\n* They will have to devise a rescue plan to find a way          *"
-       +"\n* to defeat the monster while avoiding the government           *"
-       +"\n* and the Sheriff. While on your journey you lost Eleven,       *"
-       +"\n* but are still looking for the required items to defeat        *"
-       +"\n* the monster. If the government finds you then you will        *"
-       +"\n* be taken. If the local sheriff finds you then he will         *"
-       +"\n* send you home. As you explore the map you will search         *"
-       +"\n* for the required items to build your master weapon. In        *"
-       +"\n* this game you will start your journey with a flashlight,      *"
-       +"\n* a shovel, and a backpack. You will move as a team in order    *"
-       +"\n* to accomplish your goal of defeating the monster. Throughout  *"
-       +"\n* the map there will be items placed that you can find in order *"
-       +"\n* to make your master weapon. The route you take and rhe weapon *"
-       +"\n* you make is up to you.                                        *"
+       +"\n* The list of inventory on the map shows you what items         *"
+       +"\n* you have on the map on the locations you have visited         *"
+       +"\n* to make weapons.                                              *"
        +"\n*                                                               *"
        +"\n*****************************************************************"
         
-       /**/
         
         );
     }
@@ -198,33 +158,14 @@ public class HelpMenuView {
         System.out.println(
         "\n*****************************************************************"
        +"\n*                                                               *"
-       +"\n* Stranger Things! is a text based role playing                 *"
-       +"\n* game from the events in the Netflix original                  *"
-       +"\n* series Stranger Things. You will be taking the                *"
-       +"\n* role of 3 children named Mike, Lucas, and Dustin.             *"
-       +"\n* One of thier friends went missing and Mike, Lucas             *"
-       +"\n* and Dustin suspect foul play. While investigating             *"
-       +"\n* they cross paths with another child named Eleven who          *"
-       +"\n* has telekinesis powers. She helps Mike, Lucas, and            *"
-       +"\n* Dustin discover that their friend was taken by a monster!     *"
-       +"\n* They will have to devise a rescue plan to find a way          *"
-       +"\n* to defeat the monster while avoiding the government           *"
-       +"\n* and the Sheriff. While on your journey you lost Eleven,       *"
-       +"\n* but are still looking for the required items to defeat        *"
-       +"\n* the monster. If the government finds you then you will        *"
-       +"\n* be taken. If the local sheriff finds you then he will         *"
-       +"\n* send you home. As you explore the map you will search         *"
-       +"\n* for the required items to build your master weapon. In        *"
-       +"\n* this game you will start your journey with a flashlight,      *"
-       +"\n* a shovel, and a backpack. You will move as a team in order    *"
-       +"\n* to accomplish your goal of defeating the monster. Throughout  *"
-       +"\n* the map there will be items placed that you can find in order *"
-       +"\n* to make your master weapon. The route you take and rhe weapon *"
-       +"\n* you make is up to you.                                        *"
+       +"\n* Throughout the game, objects for making weapons will be       *"
+       +"\n* at randomized places on the map. You are to gather as many    *"
+       +"\n* objects as possible without getting caught by the sheriff,    *"
+       +"\n* government and monster. The more objects you have, the more   *"
+       +"\n* powerful your weapon becomes.                                 *"
        +"\n*                                                               *"
        +"\n*****************************************************************"
         
-       /**/
         
         );
     }
