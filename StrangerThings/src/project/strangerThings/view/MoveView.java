@@ -12,6 +12,7 @@ package project.strangerThings.view;
 public class MoveView {
 
     void displayMenu() {
+        //Menu should print out N-North, E- East, S-South, and W-West
         System.out.println("\n*** MoveView() function called  ***");
     }
     
