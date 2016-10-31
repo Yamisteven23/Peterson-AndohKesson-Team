@@ -99,7 +99,8 @@ public class GameMenuView {
     }
 
     private void move() {
-        System.out.println("\n*** move() function called +++");
+        MoveView moveMenu = new MoveView();
+        moveMenu.displayMenu();
     }
 
     private void checkInventory() {
@@ -115,6 +116,7 @@ public class GameMenuView {
     }
 
     private void helpMenu() {
-        System.out.println("\n*** helpMenu() function called +++");
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
 }
