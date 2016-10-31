@@ -15,10 +15,6 @@ public class GameMenuView {
 
     private String menu;
 
-    void displayMenu() {
-
-    }
-
     public void displayGameMenuView() {
 
         boolean done = false;
