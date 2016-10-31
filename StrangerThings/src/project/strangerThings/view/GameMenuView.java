@@ -13,63 +13,67 @@ import java.util.Scanner;
  */
 public class GameMenuView {
 
-    void displayMenu() {
-        private String menu;
+    private String menu;
 
-   public void displayGameMenuView() {
-        
+    void displayMenu() {
+
+    }
+
+    public void displayGameMenuView() {
+
         boolean done = false;
-        do{
-        
-        String menuOption = this.getMenuOption();
-        if (menuOption.toUpperCase().equals("E"))
-            return;
-        
-        done = this.doAction(menuOption);
+        do {
+
+            String menuOption = this.getMenuOption();
+            if (menuOption.toUpperCase().equals("E")) {
+                return;
+            }
+
+            done = this.doAction(menuOption);
         } while (!done);
     }
 
     public GameMenuView() {
         this.menu = "\n"
-                    +"\n----------------------------------"
-                    +"\n|         Game Menu              |"
-                    +"\n---------------------------------|"
-                    +"\nM- Move                          |"
-                    +"\nI- Inventory                     |"
-                    +"\nV- View Map                      |"
-                    +"\nS- Save Game                     |"
-                    +"\nH- Help Menu                     |"
-                    +"\nW- Manufacture Weapon            |"
-                    +"\nL- Look for items                |"
-                    +"\nE- Exit Game                     |"
-                    +"\n----------------------------------";
+                + "\n----------------------------------"
+                + "\n|         Game Menu              |"
+                + "\n---------------------------------|"
+                + "\nM- Move                          |"
+                + "\nI- Inventory                     |"
+                + "\nV- View Map                      |"
+                + "\nS- Save Game                     |"
+                + "\nH- Help Menu                     |"
+                + "\nW- Manufacture Weapon            |"
+                + "\nL- Look for items                |"
+                + "\nE- Exit Game                     |"
+                + "\n----------------------------------";
     }
 
-   private String getMenuOption() {
+    private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; //initalize to not valid
-        
+
         while (!valid) {
             System.out.println("\n" + this.menu);
-            
+
             value = keyboard.nextLine(); //get next line typed by keyboard
             value = value.trim(); //trim off leading and trailing whitespace
-            
-            if (value.length() < 1){ //value is blank
+
+            if (value.length() < 1) { //value is blank
                 System.out.println("\nInvalid value; value cannot be blank");
                 continue;
             }
             break; //end the loop
-            
+
         }
         return value; //return the value entered
     }
 
     private boolean doAction(String menuOption) {
-       String choice = menuOption.toUpperCase();
-        
-        switch (choice){
+        String choice = menuOption.toUpperCase();
+
+        switch (choice) {
             case "M": //Move
                 this.move();
                 break;
@@ -99,21 +103,22 @@ public class GameMenuView {
     }
 
     private void move() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** move() function called +++");
     }
 
     private void checkInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** checkInventory() function called +++");
     }
 
     private void viewMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewMap() function called +++");
     }
 
     private void manufactureWeapon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** manufactureWeapon() function called +++");
     }
 
     private void helpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** helpMenu() function called +++");
     }
+}
