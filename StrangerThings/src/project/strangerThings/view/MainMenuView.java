@@ -75,6 +75,9 @@ public class MainMenuView {
             case "H": //Help Menu
                 this.helpMenu();
                 break;
+            case "S": //Secret Shack Menu for testing
+                this.goToShack();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Please Try again");
                 break;
@@ -96,6 +99,11 @@ public class MainMenuView {
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayMenu();
+    }
+
+    private void goToShack() {
+        TheShackView toShack = new TheShackView();
+        toShack.displayTheShack();
     }
     
 }
