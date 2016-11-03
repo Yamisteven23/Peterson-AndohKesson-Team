@@ -126,7 +126,7 @@ IF (equation does not equal userAnswer) THEN
 ELSE
 	RETURN 0 
 END*/
-    public long openTheShack(long rn, long rn2, long userAnswer) {
+    public static long openTheShack(long rn, long rn2, long userAnswer) {
 
         if (userAnswer < 1 || userAnswer > 999) {
             return -1;

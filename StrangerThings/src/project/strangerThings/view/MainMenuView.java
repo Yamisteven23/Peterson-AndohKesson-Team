@@ -103,7 +103,7 @@ public class MainMenuView {
 
     private void goToShack() {
         TheShackView toShack = new TheShackView();
-        toShack.displayTheShack();
+        toShack.displayShackView();
     }
     
 }
