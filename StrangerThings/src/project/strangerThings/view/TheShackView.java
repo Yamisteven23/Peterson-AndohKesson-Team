@@ -74,7 +74,7 @@ public class TheShackView {
     }
 
     private boolean doAction(String menuOption) {
-        if (menuOption.equals("Y")) {
+        if (menuOption.toUpperCase().equals("Y")) {
             TheNoteView viewNote = new TheNoteView();
             viewNote.displayNoteView();
         }

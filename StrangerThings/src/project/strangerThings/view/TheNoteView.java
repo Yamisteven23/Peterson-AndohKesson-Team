@@ -74,7 +74,23 @@ public class TheNoteView {
       long result = MapControl.openTheShack(this.rn, this.rn2,answer);
       
       if (result == 0){
-      
+          System.out.println("\nCongrats! The Locked Opened!"); //Change this eventually
+      }
+      else if (result == 2){
+          System.out.println("\nYou put in the number but the lock didn't open!");
+          return false;
+      }
+      else if (result == -1){
+          System.out.println("\nThis is not a number on a padlock");
+          return false;
+      }
+      else if (result == -2){
+          System.out.println("\nRandom number 1 is invalid!");
+          return false;
+      }
+      else if (result == -3){
+          System.out.println("\nRandom number 2 is invalid!");
+          return false;
       }
        
     return true;
