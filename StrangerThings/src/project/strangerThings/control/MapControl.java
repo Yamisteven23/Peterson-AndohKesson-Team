@@ -51,7 +51,7 @@ public class MapControl {
         return 1;
     }
 
-    public long fightMonster(long hits, long powerLevel, long monsterHealth) {
+    public static long fightMonster(long hits, long powerLevel, long monsterHealth) {
         /* 
    IF (hits < 2) THEN 
 	RETURN -1
