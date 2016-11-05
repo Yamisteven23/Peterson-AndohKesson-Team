@@ -5,7 +5,6 @@
  */
 package project.strangerThings.view;
 
-
 import java.util.Scanner;
 import project.strangerThings.control.MapControl;
 
@@ -16,10 +15,8 @@ import project.strangerThings.control.MapControl;
 class TheFightView {
 
     private String displayMessage;
-    
+
     public void displayFightView() {
-         
-        
 
         this.displayMessage
                 = "\n*****************************************************************"
@@ -72,21 +69,29 @@ class TheFightView {
         long result = MapControl.fightMonster(answer, powerLevel, monsterHealth);
 
         if (result == 0) {
-            System.out.println("\nCongrats! The Locked Opened!"); //Change this eventually
-        } else if (result == 2) {
-            System.out.println("\nYou put in the number but the lock didn't open!");
+            System.out.println("\nSorry, You Lost a Life!"); //Change this eventually
+        } else if (result == 1) {
+            System.out.println("\nVictory! You defeated the monster");
             return false;
         } else if (result == -1) {
-            System.out.println("\nThis is not a number on a padlock");
+            System.out.println("\nSorry, not enough hits to defeat the monster. You Lost a Life.");
             return false;
         } else if (result == -2) {
-            System.out.println("\nRandom number 1 is invalid!");
+            System.out.println("\nSorry its impossible to swing that many times! You Lost a Life");
             return false;
         } else if (result == -3) {
-            System.out.println("\nRandom number 2 is invalid!");
+            System.out.println("\nSorry, not enough power Level to defeat the monster. You Lost a Life.");
+            return false;
+        } else if (result == -4) {
+            System.out.println("\nSorry, Invalid power Level input");
+            return false;
+        } else if (result == -5) {
+            System.out.println("\nSorry, Invalid Monster Health input");
+            return false;
+        } else if (result == -6) {
+            System.out.println("\nSorry, Monster Health can not be more than 70.");
             return false;
         }
-
         return true;
     }
 

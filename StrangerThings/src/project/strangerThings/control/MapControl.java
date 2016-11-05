@@ -11,7 +11,9 @@ package project.strangerThings.control;
  */
 public class MapControl {
 
-    public long runFromMonster(long time, long distance) {
+    
+
+    public static long runFromMonster(long time, long distance) {
         /*
         if (time > 105) then
                 Return 0
