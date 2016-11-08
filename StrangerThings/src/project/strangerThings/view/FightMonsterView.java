@@ -30,7 +30,7 @@ public class FightMonsterView {
 
     }
 
-    private String getMenuOption() {
+    public String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; //initalize to not valid
@@ -65,5 +65,7 @@ public class FightMonsterView {
         return true;
 
     }
+
+    
 
 }
