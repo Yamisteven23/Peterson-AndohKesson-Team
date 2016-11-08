@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author Isaac
  */
-public class FightMonsterView {
+public class FightMonsterView extends View {
 
-    private String displayMessage;
+    
 
     public FightMonsterView() {
-        this.displayMessage
-                = "\n*****************************************************************"
+        super(
+                "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* YOU HAVE COME ACROSS THE MONSTER! Do You Want to Run or Fight *"
                 + "\n*****************************************************************"
@@ -26,40 +26,20 @@ public class FightMonsterView {
                 + "\n*                R-Run                      *"
                 + "\n*                F-Fight                    *"
                 + "\n*                                           *"
-                + "\n*********************************************";
+                + "\n*********************************************");
 
     }
 
-    public String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initalize to not valid
-
-        while (!valid) {
-            System.out.println("\n" + this.displayMessage);
-
-            value = keyboard.nextLine(); //get next line typed by keyboard
-            value = value.trim(); //trim off leading and trailing whitespace
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-
-        }
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String menuOption) {
+    @Override
+    public boolean doAction(String menuOption) {
         if (menuOption.toUpperCase().equals("F")) {
             TheFightView viewFight = new TheFightView();
-            viewFight.displayFightView();
+            viewFight.display();
         }
 
         else if(menuOption.toUpperCase().equals("R")){
               TheRunFromMonsterView viewMonster = new TheRunFromMonsterView();
-              viewMonster.displayTheRunFromMonsterView();
+              viewMonster.display();
                 }
 
         return true;

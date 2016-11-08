@@ -12,57 +12,24 @@ import project.strangerThings.control.MapControl;
  *
  * @author Isaac
  */
-class TheFightView {
+class TheFightView extends View {
 
-    private String displayMessage;
+    
 
-    public void displayFightView() {
+    public TheFightView() {
 
-        this.displayMessage
-                = "\n*****************************************************************"
+        super(
+                "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n  You've come face to face with the monster. How many hits do    "
                 + "\n  you think you can take?                                        "
-                + "\n*****************************************************************";
+                + "\n*****************************************************************");
 
     }
 
-    private String getAnswer() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initalize to not valid
-
-        while (!valid) {
-            System.out.println("\n" + this.displayMessage);
-
-            value = keyboard.nextLine(); //get next line typed by keyboard
-            value = value.trim(); //trim off leading and trailing whitespace
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-
-        }
-        return value; //return the value entered
-    }
-
-    void displayFigthView() {
-
-        boolean done = false;
-        do {
-
-            String userAnswer = this.getAnswer();
-            if (userAnswer.toUpperCase().equals("E")) {
-                return;
-            }
-
-            done = this.doAction(userAnswer);
-        } while (!done);
-    }
-
-    private boolean doAction(String userAnswer) {
+    
+    @Override
+    public boolean doAction(String userAnswer) {
         long monsterHealth = 70;
         long powerLevel = 40;
         long answer = Long.parseLong(userAnswer);

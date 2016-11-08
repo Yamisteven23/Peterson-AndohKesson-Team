@@ -13,59 +13,25 @@ import strangerthings.StrangerThings;
  *
  * @author Yamisteven23
  */
-public class MainMenuView {
-    private String menu;
-
-   public void displayMainMenuView() {
-        
-        boolean done = false;
-        do{
-        
-        String menuOption = this.getMenuOption();
-        if (menuOption.toUpperCase().equals("E"))
-            return;
-        
-        done = this.doAction(menuOption);
-        } while (!done);
-    }
+public class MainMenuView extends View {
 
     public MainMenuView() {
-        this.menu = "\n"
-                    +"\n----------------------------------"
-                    +"\n|         Main Menu              |"
-                    +"\n----------------------------------"
-                    +"\nN- New Game"
-                    +"\nR- Restore existing game"
-                    +"\nH- Help Menu"
-                    +"\nE- Exit Game"
-                    +"\n----------------------------------";
+        super("\n"
+                + "\n----------------------------------"
+                + "\n|         Main Menu              |"
+                + "\n----------------------------------"
+                + "\nN- New Game"
+                + "\nR- Restore existing game"
+                + "\nH- Help Menu"
+                + "\nE- Exit Game"
+                + "\n----------------------------------");
     }
 
-   private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initalize to not valid
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine(); //get next line typed by keyboard
-            value = value.trim(); //trim off leading and trailing whitespace
-            
-            if (value.length() < 1){ //value is blank
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-            
-        }
-        return value; //return the value entered
-    }
+    @Override
+    public boolean doAction(String value) {
+        String choice = value.toUpperCase();
 
-    private boolean doAction(String menuOption) {
-       String choice = menuOption.toUpperCase();
-        
-        switch (choice){
+        switch (choice) {
             case "N": //create new game
                 this.startNewGame();
                 break;
@@ -78,6 +44,9 @@ public class MainMenuView {
             case "S": //Secret Shack Menu for testing
                 this.goToShack();
                 break;
+            case "F": //Secret Shack Menu for testing
+                this.goFightMonster();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Please Try again");
                 break;
@@ -87,7 +56,7 @@ public class MainMenuView {
 
     private void startNewGame() {
         GameControl.createNewGame(StrangerThings.getPlayer());
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayGameMenuView();
     }
@@ -105,5 +74,11 @@ public class MainMenuView {
         TheShackView toShack = new TheShackView();
         toShack.displayShackView();
     }
-    
+
+    private void goFightMonster() {
+        FightMonsterView toMonster = new FightMonsterView();
+        toMonster.display();
+
+    }
+
 }
