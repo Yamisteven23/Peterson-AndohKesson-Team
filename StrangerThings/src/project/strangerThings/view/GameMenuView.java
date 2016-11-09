@@ -11,26 +11,10 @@ import java.util.Scanner;
  *
  * @author Yamisteven23
  */
-public class GameMenuView {
-
-    private String menu;
-
-    public void displayGameMenuView() {
-
-        boolean done = false;
-        do {
-
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
+public class GameMenuView extends View {
 
     public GameMenuView() {
-        this.menu = "\n"
+        super("\n"
                 + "\n----------------------------------"
                 + "\n|         Game Menu              |"
                 + "\n---------------------------------|"
@@ -41,33 +25,13 @@ public class GameMenuView {
                 + "\nH- Help Menu                     |"
                 + "\nW- Manufacture Weapon            |"
                 + "\nL- Look for items                |"
-                + "\nE- Exit Game                     |"
-                + "\n----------------------------------";
+                + "\nX- Exit Game                     |"
+                + "\n----------------------------------");
     }
 
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initalize to not valid
-
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); //get next line typed by keyboard
-            value = value.trim(); //trim off leading and trailing whitespace
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-
-        }
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String menuOption) {
-        String choice = menuOption.toUpperCase();
+    @Override
+    public boolean doAction(String value) {
+        String choice = value.toUpperCase();
 
         switch (choice) {
             case "M": //Move
@@ -100,7 +64,7 @@ public class GameMenuView {
 
     private void move() {
         MoveView moveMenu = new MoveView();
-        moveMenu.displayMenu();
+        moveMenu.display();
     }
 
     private void checkInventory() {
@@ -117,6 +81,6 @@ public class GameMenuView {
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
 }

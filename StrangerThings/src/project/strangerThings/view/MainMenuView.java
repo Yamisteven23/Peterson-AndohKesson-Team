@@ -23,7 +23,7 @@ public class MainMenuView extends View {
                 + "\nN- New Game"
                 + "\nR- Restore existing game"
                 + "\nH- Help Menu"
-                + "\nE- Exit Game"
+                + "\nX- Exit Game"
                 + "\n----------------------------------");
     }
 
@@ -58,7 +58,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(StrangerThings.getPlayer());
 
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.display();
     }
 
     private void restoreExistingGame() {
@@ -67,7 +67,7 @@ public class MainMenuView extends View {
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
 
     private void goToShack() {
