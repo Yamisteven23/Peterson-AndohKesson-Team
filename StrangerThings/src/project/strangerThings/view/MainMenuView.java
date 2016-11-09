@@ -5,7 +5,6 @@
  */
 package project.strangerThings.view;
 
-import java.util.Scanner;
 import project.strangerThings.control.GameControl;
 import strangerthings.StrangerThings;
 
@@ -72,7 +71,7 @@ public class MainMenuView extends View {
 
     private void goToShack() {
         TheShackView toShack = new TheShackView();
-        toShack.displayShackView();
+        toShack.display();
     }
 
     private void goFightMonster() {
