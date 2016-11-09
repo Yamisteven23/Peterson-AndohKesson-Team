@@ -13,8 +13,6 @@ import java.util.Scanner;
  */
 public class FightMonsterView extends View {
 
-    
-
     public FightMonsterView() {
         super(
                 "\n*****************************************************************"
@@ -35,17 +33,13 @@ public class FightMonsterView extends View {
         if (menuOption.toUpperCase().equals("F")) {
             TheFightView viewFight = new TheFightView();
             viewFight.display();
+        } else if (menuOption.toUpperCase().equals("R")) {
+            TheRunFromMonsterView viewMonster = new TheRunFromMonsterView();
+            viewMonster.display();
         }
-
-        else if(menuOption.toUpperCase().equals("R")){
-              TheRunFromMonsterView viewMonster = new TheRunFromMonsterView();
-              viewMonster.display();
-                }
 
         return true;
 
     }
-
-    
 
 }

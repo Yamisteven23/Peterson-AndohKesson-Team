@@ -11,26 +11,10 @@ import java.util.Scanner;
  *
  * @author Yamisteven23
  */
-public class MoveView {
-
-    private final String menu;
-
-    void displayMenu() {
-        //Menu should print out N-North, E- East, S-South, and W-West
-        boolean done = false;
-        do {
-
-            String moveMenu = this.getMoveMenu();
-            if (moveMenu.toUpperCase().equals("X")) {
-                return;
-            }
-
-            done = this.doAction(moveMenu);
-        } while (!done);
-    }
+public class MoveView extends View {
 
     public MoveView() {
-        this.menu = "\n"
+        super("\n"
                 + "\n----------------------------------"
                 + "\n|         Move Menu              |"
                 + "\n---------------------------------|"
@@ -39,32 +23,12 @@ public class MoveView {
                 + "\nE- East                          |"
                 + "\nW- West                          |"
                 + "\nX- Exit Game                     |"
-                + "\n----------------------------------";
+                + "\n----------------------------------");
     }
 
-    private String getMoveMenu() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initalize to not valid
-
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); //get next line typed by keyboard
-            value = value.trim(); //trim off leading and trailing whitespace
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-
-        }
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String moveMenu) {
-        String choice = moveMenu.toUpperCase();
+    @Override
+    public boolean doAction(String value) {
+        String choice = value.toUpperCase();
 
         switch (choice) {
             case "N": //Move North
