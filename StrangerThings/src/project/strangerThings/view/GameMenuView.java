@@ -44,13 +44,13 @@ public class GameMenuView extends View {
                 this.viewMap();
                 break;
             case "S": //Save Game
-                this.checkInventory();
+                this.saveGame();
                 break;
             case "W": //Make Weapon
                 this.manufactureWeapon();
                 break;
             case "L": //Look for items
-                this.checkInventory();
+                this.lookForItems();
                 break;
             case "H": //Help Menu
                 this.helpMenu();
@@ -82,5 +82,13 @@ public class GameMenuView extends View {
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
+    }
+
+    private void saveGame() {
+         System.out.println("\n*** saveGame() function called +++");
+    }
+
+    private void lookForItems() {
+         System.out.println("\n*** lookForItems() function called +++");
     }
 }
