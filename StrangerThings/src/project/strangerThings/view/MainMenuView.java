@@ -43,8 +43,11 @@ public class MainMenuView extends View {
             case "S": //Secret Shack Menu for testing
                 this.goToShack();
                 break;
-            case "F": //Secret Shack Menu for testing
+            case "F": //Secret Fight Monster for testing
                 this.goFightMonster();
+                break;
+            case "B": //Secret Fight Monster for testing
+                this.goToSchool();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Please Try again");
@@ -78,6 +81,11 @@ public class MainMenuView extends View {
         FightMonsterView toMonster = new FightMonsterView();
         toMonster.display();
 
+    }
+
+    private void goToSchool() {
+        TheSchoolView toSchool = new TheSchoolView();
+        toSchool.display();
     }
 
 }
