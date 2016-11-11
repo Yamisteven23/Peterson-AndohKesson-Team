@@ -49,6 +49,9 @@ public class MainMenuView extends View {
             case "B": //Secret Fight Monster for testing
                 this.goToSchool();
                 break;
+            case "P": //Secret Fight Monster for testing
+                this.pickItems();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Please Try again");
                 break;
@@ -86,6 +89,11 @@ public class MainMenuView extends View {
     private void goToSchool() {
         TheSchoolView toSchool = new TheSchoolView();
         toSchool.display();
+    }
+
+    private void pickItems() {
+        PickUpItemView pickItem = new PickUpItemView();
+        pickItem.display();
     }
 
 }
