@@ -16,6 +16,7 @@ public class Question implements Serializable{
     private String question;
     private String answer;
     private String correctAnswer;
+    private Location location;
 
     public Question() {
     }
@@ -77,6 +78,14 @@ public class Question implements Serializable{
     @Override
     public String toString() {
         return "Question{" + "question=" + question + ", answer=" + answer + ", correctAnswer=" + correctAnswer + '}';
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     

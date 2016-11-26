@@ -13,6 +13,9 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     private double timePlayed;
+    private Item[] inventory;
+    private Player player;
+    private Map map;
 
     public Game() {
     }
@@ -53,6 +56,30 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "timePlayed=" + timePlayed + '}';
+    }
+
+    public Item[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Item[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     

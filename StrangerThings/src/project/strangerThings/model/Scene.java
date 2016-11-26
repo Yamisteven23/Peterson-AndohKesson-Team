@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Scene implements Serializable{
     private String description;
     private String mapSymbol;
+    private Location location;
 
     public Scene() {
     }
@@ -66,6 +67,14 @@ public class Scene implements Serializable{
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", mapSymbol=" + mapSymbol + '}';
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
     
     

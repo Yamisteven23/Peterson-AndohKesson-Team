@@ -12,35 +12,39 @@ import java.io.Serializable;
  * @author Yamisteven23
  */
 public class Location implements Serializable{
-    private long row;
-    private long column;
-    private long visited;
+    private int row;
+    private int column;
+    private boolean visited;
     private long amountRemaining;
+    private Item[] placedItems;
+    private Scene scene;
+    private Character character;
+    private Question questionScene;
 
     public Location() {
     }
 
-    public long getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(long row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public long getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(long column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
-    public long getVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
-    public void setVisited(long visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
@@ -57,7 +61,6 @@ public class Location implements Serializable{
         int hash = 7;
         hash = 37 * hash + (int) (this.row ^ (this.row >>> 32));
         hash = 37 * hash + (int) (this.column ^ (this.column >>> 32));
-        hash = 37 * hash + (int) (this.visited ^ (this.visited >>> 32));
         hash = 37 * hash + (int) (this.amountRemaining ^ (this.amountRemaining >>> 32));
         return hash;
     }
@@ -89,6 +92,38 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    }
+
+    public Item[] getPlacedItems() {
+        return placedItems;
+    }
+
+    public void setPlacedItems(Item[] placedItems) {
+        this.placedItems = placedItems;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    public Question getQuestionScene() {
+        return questionScene;
+    }
+
+    public void setQuestionScene(Question questionScene) {
+        this.questionScene = questionScene;
     }
 
    

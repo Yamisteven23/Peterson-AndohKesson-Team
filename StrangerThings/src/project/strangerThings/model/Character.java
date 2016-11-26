@@ -5,7 +5,9 @@
  */
 package project.strangerThings.model;
 
+import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,9 +16,11 @@ import java.util.Objects;
  */
 public class Character implements Serializable{
     private String name;
-    private long numLives;
+    private long numLives = 3;
     private String description;
-    private long location;
+    private Location location;
+    private ArrayList<Item> inventoryList;
+    private Point coordinates;
 
     public Character() {
     }
@@ -45,11 +49,11 @@ public class Character implements Serializable{
         this.description = description;
     }
 
-    public long getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(long location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
@@ -59,7 +63,6 @@ public class Character implements Serializable{
         hash = 17 * hash + Objects.hashCode(this.name);
         hash = 17 * hash + (int) (this.numLives ^ (this.numLives >>> 32));
         hash = 17 * hash + Objects.hashCode(this.description);
-        hash = 17 * hash + (int) (this.location ^ (this.location >>> 32));
         return hash;
     }
 
@@ -95,7 +98,23 @@ public class Character implements Serializable{
         return "Character{" + "name=" + name + ", numLives=" + numLives + ", description=" + description + ", location=" + location + '}';
     }
 
-    
+    public ArrayList<Item> getInventoryList() {
+        
+        return inventoryList;
+    }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    Character(String description, int row, int column){
+        this.description = description;
+        this.coordinates = new Point(row, column);
+    }
     
     
     

@@ -16,7 +16,16 @@ public class Player implements Serializable{
     
     private String name;
     private double bestTime;
+    private Character playingCharacter;
+    
 
+    public Character getPlayingCharacter() {
+        return playingCharacter;
+    }
+
+    public void setPlayingCharacter(Character playingCharacter) {
+        this.playingCharacter = playingCharacter;
+    }
     public Player() {
     }
     

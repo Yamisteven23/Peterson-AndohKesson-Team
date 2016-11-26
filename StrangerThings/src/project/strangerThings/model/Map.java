@@ -6,31 +6,56 @@
 package project.strangerThings.model;
 
 import java.io.Serializable;
+import project.strangerThings.model.Location;
 
 /**
  *
  * @author lkedohkess
  */
 public class Map implements Serializable{
-    private long columnCount;
-    private long rowCount;
+    private int columnCount;
+    private int rowCount;
+    private Location[][] locations;
 
     public Map() {
     }
+    
+    public Map(int rowCount, int columnCount){
+        if (columnCount < 1 || rowCount < 1){
+            System.out.println("The number of rows and columns must be > zero");
+             return;
+        }
+       this.columnCount = columnCount;
+       this.rowCount = rowCount;
+       
+       this.locations = new Location[rowCount][columnCount];
+       
+       for (int row = 0; row < rowCount; row++){
+           for (int column = 0; column < columnCount; column++){
+               Location location = new Location();
+               location.setColumn(column);
+               location.setRow(row);
+               location.setVisited(false);
+               
+               locations[row][column] = location;
+           }
+       }
+           
+    }
 
-    public long getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(long columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 
-    public long getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(long rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
@@ -67,6 +92,16 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "columnCount=" + columnCount + ", rowCount=" + rowCount + '}';
     }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] location) {
+        this.locations = location;
+    }
+
+    
     
     
     
