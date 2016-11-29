@@ -168,7 +168,6 @@ END*/
     }
 
     private static Scene[] createScenes() {
-         System.out.println("\n*** create scenes called");
          Scene[] scenes = new Scene[SceneType.values().length];
          
          Scene startScene = new Scene();
