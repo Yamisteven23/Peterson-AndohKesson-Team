@@ -16,7 +16,7 @@ public class Location implements Serializable{
     private int column;
     private boolean visited;
     private long amountRemaining;
-    private Item[] placedItems;
+    private Item[] placedItems = new Item[3];
     private Scene scene;
     private Character character;
     private Question questionScene;

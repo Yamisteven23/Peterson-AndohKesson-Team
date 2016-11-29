@@ -99,9 +99,14 @@ public class Character implements Serializable{
     }
 
     public ArrayList<Item> getInventoryList() {
-        
         return inventoryList;
     }
+
+    public void setInventoryList(ArrayList<Item> inventoryList) {
+        this.inventoryList = inventoryList;
+    }
+
+    
 
     public Point getCoordinates() {
         return coordinates;

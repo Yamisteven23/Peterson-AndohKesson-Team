@@ -5,6 +5,7 @@
  */
 package project.strangerThings.control;
 
+import java.util.ArrayList;
 import project.strangerThings.model.Game;
 import project.strangerThings.model.Item;
 import project.strangerThings.model.Location;
@@ -13,6 +14,7 @@ import project.strangerThings.model.Player;
 import project.strangerThings.model.Scene;
 import project.strangerThings.model.SceneType;
 import strangerthings.StrangerThings;
+import project.strangerThings.model.Character;
 
 /**
  *
@@ -42,6 +44,8 @@ public class GameControl {
         
         Character[] currentCharacter = GameControl.createNewCharacter();
         
+        ArrayList<Item> backpack = new ArrayList<>();
+                    
         Map map = MapControl.createMap();
         game.setMap(map);
         
@@ -95,8 +99,28 @@ public class GameControl {
         //create array of characters, create playable character, set name etc, create new inventory list (arraylist), add flashlight 
         //and shovel,assign playable character to position 0 in character list, create monster, set values, assign monsters to position 1 to character list
         //return character list
-        System.out.println("\n**** new Character called ***");
-        return null;
+        Character[] characters = new Character[1];
+        
+        Character mike = new Character();
+        mike.setDescription("Mike");
+        mike.setNumLives(3);
+        ArrayList<Item> inventoryList = new ArrayList<>();
+        inventoryList.add(Item.Shovel);
+        inventoryList.add(Item.Flashlight);
+        mike.setInventoryList(inventoryList);
+        characters[0] = mike;
+        return characters;
     }
-    
+    private static void assignItemsToLocations(Map map){
+        Location[][] locations = map.getLocations();
+        
+           Item[] items = locations[0][1].getPlacedItems();
+           items[0] = Item.Nail;
+           items[1] = Item.Thorn;
+           items[2] = Item.SharpMetal;
+           
+        //   items = locations[0][2].getPlacedItems();
+        //   items[0]
+        
+    }
 }

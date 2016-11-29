@@ -40,7 +40,7 @@ public class MapControl {
             return 0;
         }
 
-        if (distance < 400 || distance > 400) {
+        if (distance != 400) {
 
             return -1;
         }
