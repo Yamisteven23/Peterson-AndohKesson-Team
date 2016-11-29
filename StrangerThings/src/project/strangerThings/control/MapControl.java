@@ -166,6 +166,22 @@ END*/
     static void moveCharactersToStartLocation(Map map) {
         System.out.println("\n*** Characters moved to start location");
     }
+    
+  /*  public static int moveCharacterToLocation(Character character, Point coordinates){
+     Map map = StrangerThings.getCurrentGame().getMap();
+     int newRow = cordinates.x-1;
+     int newColumn = cordinates.y-1;
+     
+     if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()){
+         return -1;
+     }
+    
+    
+    return 0;
+    
+    
+    }
+*/
 
     private static Scene[] createScenes() {
          Scene[] scenes = new Scene[SceneType.values().length];
