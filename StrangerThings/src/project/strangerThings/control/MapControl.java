@@ -5,6 +5,7 @@
  */
 package project.strangerThings.control;
 
+import project.strangerThings.exceptions.MapControlException;
 import project.strangerThings.model.Map;
 import project.strangerThings.model.Scene;
 import project.strangerThings.model.SceneType;
@@ -163,25 +164,32 @@ END*/
         return map;
     }
 
-    static void moveCharactersToStartLocation(Map map) {
-        System.out.println("\n*** Characters moved to start location");
+  /*  static void moveCharactersToStartLocation(Map map) {
+        Character character = Character.mike();
+        
+        for (Character character : characters){
+            Point coordinates = Character.getCoordinates();
+        
+        }
+        
     }
     
-  /*  public static int moveCharacterToLocation(Character character, Point coordinates){
+    public static int moveCharacterToLocation(Character character, Point coordinates){
      Map map = StrangerThings.getCurrentGame().getMap();
      int newRow = cordinates.x-1;
      int newColumn = cordinates.y-1;
      
      if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()){
-         return -1;
+         throw new MapControlException("Can not move Character to location"
+                 + coordinates.x + ", " + coordinates.y
+                 + " because that location is outside "
+                 + " the bounds of the map.");
      }
+
     
     
-    return 0;
-    
-    
-    }
-*/
+    }*/
+
 
     private static Scene[] createScenes() {
          Scene[] scenes = new Scene[SceneType.values().length];
