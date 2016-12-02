@@ -119,8 +119,155 @@ public class GameControl {
            items[1] = Item.Thorn;
            items[2] = Item.SharpMetal;
            
-        //   items = locations[0][2].getPlacedItems();
-        //   items[0]
-        
+          items = locations[0][2].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+          
+          items = locations[0][4].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          
+          items = locations[0][5].getPlacedItems();
+          items[0] = Item.Dust;
+          
+          items = locations[1][0].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+          
+          items = locations[1][1].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          
+          items = locations[1][2].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[1][3].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+          
+          items = locations[1][4].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+          
+          items = locations[1][5].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[2][0].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+          
+          items = locations[2][2].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[2][3].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          items[3] = Item.GlassShard;
+          items[4] = Item.SharpMetal;
+          items[5] = Item.Thorn;
+          items[6] = Item.GlassShard;
+          items[7] = Item.SharpMetal;
+          items[8] = Item.Thorn;
+          items[9] = Item.Thorn;
+          items[10] = Item.Thorn;
+          
+          items = locations[2][4].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[2][5].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+          
+          items = locations[3][0].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          
+          items = locations[3][1].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[3][2].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+          
+          items = locations[3][3].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+                    
+          items = locations[3][5].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+          
+          items = locations[4][0].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[4][1].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+                               
+          items = locations[4][3].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+             
+          items = locations[4][4].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.Staples;
+          items[3] = Item.Nail;
+              
+          items = locations[4][5].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+                             
+          items = locations[5][1].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          
+          items = locations[5][2].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
+          
+          items = locations[5][3].getPlacedItems();
+          items[0] = Item.Nail;
+          items[1] = Item.Thorn;
+          items[3] = Item.SharpMetal;
+          
+          items = locations[5][4].getPlacedItems();
+          items[0] = Item.GlassShard;
+          items[1] = Item.SharpMetal;
+          items[2] = Item.Thorn;
+          
+          items = locations[5][5].getPlacedItems();
+          items[0] = Item.BarbedWire;
+          items[1] = Item.GlassShard;
+          items[2] = Item.Staples;
     }
 }
