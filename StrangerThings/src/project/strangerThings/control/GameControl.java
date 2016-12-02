@@ -122,7 +122,7 @@ public class GameControl {
           items = locations[0][2].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
           
           items = locations[0][4].getPlacedItems();
           items[0] = Item.GlassShard;
@@ -145,7 +145,7 @@ public class GameControl {
           items = locations[1][2].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[1][3].getPlacedItems();
           items[0] = Item.BarbedWire;
@@ -155,22 +155,22 @@ public class GameControl {
           items = locations[1][4].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
           
           items = locations[1][5].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[2][0].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
           
           items = locations[2][2].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[2][3].getPlacedItems();
           items[0] = Item.GlassShard;
@@ -188,7 +188,7 @@ public class GameControl {
           items = locations[2][4].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[2][5].getPlacedItems();
           items[0] = Item.BarbedWire;
@@ -203,27 +203,27 @@ public class GameControl {
           items = locations[3][1].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[3][2].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
           
           items = locations[3][3].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
                     
           items = locations[3][5].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
           
           items = locations[4][0].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[4][1].getPlacedItems();
           items[0] = Item.BarbedWire;
@@ -238,7 +238,7 @@ public class GameControl {
           items = locations[4][4].getPlacedItems();
           items[0] = Item.BarbedWire;
           items[1] = Item.Staples;
-          items[3] = Item.Nail;
+          items[2] = Item.Nail;
               
           items = locations[4][5].getPlacedItems();
           items[0] = Item.GlassShard;
@@ -258,7 +258,7 @@ public class GameControl {
           items = locations[5][3].getPlacedItems();
           items[0] = Item.Nail;
           items[1] = Item.Thorn;
-          items[3] = Item.SharpMetal;
+          items[2] = Item.SharpMetal;
           
           items = locations[5][4].getPlacedItems();
           items[0] = Item.GlassShard;
