@@ -5,6 +5,7 @@
  */
 package project.strangerThings.control;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import project.strangerThings.model.Game;
 import project.strangerThings.model.Item;
@@ -109,6 +110,8 @@ public class GameControl {
         inventoryList.add(Item.Flashlight);
         mike.setInventoryList(inventoryList);
         characters[0] = mike;
+        StrangerThings.getPlayer().setPlayingCharacter(mike);
+        mike.setCoordinates(new Point(0,0));
         return characters;
     }
     private static void assignItemsToLocations(Map map){
