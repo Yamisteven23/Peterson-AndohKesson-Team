@@ -9,6 +9,10 @@ import project.strangerThings.exceptions.MapControlException;
 import project.strangerThings.model.Map;
 import project.strangerThings.model.Scene;
 import project.strangerThings.model.SceneType;
+import strangerthings.StrangerThings;
+import project.strangerThings.model.Character;
+import java.awt.Point;
+
 
 /**
  *
@@ -164,20 +168,18 @@ END*/
         return map;
     }
 
-  /*  static void moveCharactersToStartLocation(Map map) {
-        Character character = Character.mike();
+    static void moveCharactersToStartLocation(Map map) {
+        Character character = StrangerThings.getPlayer().getPlayingCharacter();
         
-        for (Character character : characters){
-            Point coordinates = Character.getCoordinates();
-        
-        }
+        Point startLocation = character.getCoordinates(); 
+ //       MapControl.moveCharacterToLocation(character, startLocation);
         
     }
     
-    public static int moveCharacterToLocation(Character character, Point coordinates){
+  /*  public static int moveCharacterToLocation(Character character, Point coordinates){
      Map map = StrangerThings.getCurrentGame().getMap();
-     int newRow = cordinates.x-1;
-     int newColumn = cordinates.y-1;
+     int newRow = coordinates.x-1;
+     int newColumn = coordinates.y-1;
      
      if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()){
          throw new MapControlException("Can not move Character to location"
@@ -188,7 +190,8 @@ END*/
 
     
     
-    }*/
+    }
+*/
 
 
     private static Scene[] createScenes() {
