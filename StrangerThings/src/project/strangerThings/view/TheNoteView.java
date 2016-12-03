@@ -36,7 +36,11 @@ public class TheNoteView extends View {
 
     @Override
     public boolean doAction(String value) {
-        long answer = Long.parseLong(value);
+        long answer = 0;
+       try{ answer = Long.parseLong(value);
+        } catch (NumberFormatException nf){
+            System.out.println("\n*** Please enter a valid number ");
+        }
         long result = MapControl.openTheShack(this.rn, this.rn2, answer);
 
         if (result == 0) {

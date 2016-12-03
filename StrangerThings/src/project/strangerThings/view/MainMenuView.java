@@ -22,6 +22,10 @@ public class MainMenuView extends View {
                 + "\nN- New Game"
                 + "\nR- Restore existing game"
                 + "\nH- Help Menu"
+                + "\nS- Shack View"
+                + "\nF- Fight Monster View"
+                + "\nB- School View"
+                + "\nP- Pick up items view"
                 + "\nX- Exit Game"
                 + "\n----------------------------------");
     }
