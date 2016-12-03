@@ -168,18 +168,18 @@ END*/
         return map;
     }
 
-    static void moveCharactersToStartLocation(Map map) {
+    static void moveCharactersToStartLocation(Map map) throws MapControlException {
         Character character = StrangerThings.getPlayer().getPlayingCharacter();
         
         Point startLocation = character.getCoordinates(); 
- //       MapControl.moveCharacterToLocation(character, startLocation);
+        MapControl.moveCharacterToLocation(character, startLocation);
         
     }
     
-  /*  public static int moveCharacterToLocation(Character character, Point coordinates){
+    public static void moveCharacterToLocation(Character character, Point coordinates) throws MapControlException {
      Map map = StrangerThings.getCurrentGame().getMap();
-     int newRow = coordinates.x-1;
-     int newColumn = coordinates.y-1;
+     int newRow = coordinates.x;
+     int newColumn = coordinates.y;
      
      if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()){
          throw new MapControlException("Can not move Character to location"
@@ -191,7 +191,7 @@ END*/
     
     
     }
-*/
+
 
 
     private static Scene[] createScenes() {
@@ -214,9 +214,7 @@ END*/
          + "lair until you came to save him. He thanks you all for your valient efforts.");
          finishScene.setMapSymbol("FN");
          scenes[SceneType.finish.ordinal()] = finishScene;
-         
-         //continue
-         
+                  
          Scene forestScene = new Scene();
          forestScene.setDescription(
            "All you see is trees around you. You decide to split up but stay close "
