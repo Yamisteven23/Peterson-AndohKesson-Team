@@ -5,7 +5,10 @@
  */
 package project.strangerThings.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import strangerthings.StrangerThings;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = StrangerThings.getInFile();
+    protected final PrintWriter console = StrangerThings.getOutFile();
     
     public View(){
     }
@@ -38,14 +44,16 @@ public abstract class View implements ViewInterface {
      
      @Override
      public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        
         String value = ""; //value to be returned
         boolean valid = false; //initalize to not valid
         
+        try{
+            
         while (!valid) {
             System.out.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine(); //get next line typed by keyboard
+            value = this.keyboard.readLine(); //get next line typed by keyboard
             value = value.trim(); //trim off leading and trailing whitespace
             
             if (value.length() < 1){ //value is blank
@@ -54,6 +62,9 @@ public abstract class View implements ViewInterface {
             }
             break; //end the loop
             
+        }
+        } catch (Exception e) {
+            System.out.println("\n*** Error reading input: " + e.getMessage());
         }
         return value; //return the value entered
     }
