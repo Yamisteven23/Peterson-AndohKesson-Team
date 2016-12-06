@@ -72,7 +72,7 @@ public class MainMenuView extends View {
     }
 
     private void restoreExistingGame() {
-        ErrorView.display(this.getClass().getName(),
+         this.console.println(
                 "\n*** restoreExistingGame called ***");
     }
 

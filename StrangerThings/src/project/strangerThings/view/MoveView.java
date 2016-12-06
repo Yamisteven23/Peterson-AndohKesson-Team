@@ -52,22 +52,22 @@ public class MoveView extends View {
     }
 
     private void north() {
-        ErrorView.display(this.getClass().getName(),
+        this.console.println(
                 "\n*** north() function called +++");
     }
 
     private void south() {
-        ErrorView.display(this.getClass().getName(),
+        this.console.println(
                 "\n*** south() function called +++");
     }
 
     private void east() {
-        ErrorView.display(this.getClass().getName(),
+        this.console.println(
                 "\n*** east() function called +++");
     }
 
     private void west() {
-       ErrorView.display(this.getClass().getName(),
-               "\n*** west() function called +++");
+        this.console.println(
+                "\n*** west() function called +++");
     }
 }

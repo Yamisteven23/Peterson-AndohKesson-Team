@@ -69,17 +69,17 @@ public class GameMenuView extends View {
     }
 
     private void checkInventory() {
-        ErrorView.display(this.getClass().getName(),
-                "\n*** checkInventory() function called +++");
+        this.console.println(
+              "\n*** checkInventory() function called +++");
     }
 
     private void viewMap() {
-        ErrorView.display(this.getClass().getName(),
+        this.console.println(
                 "\n*** viewMap() function called +++");
     }
 
     private void manufactureWeapon() {
-        ErrorView.display(this.getClass().getName(),
+         this.console.println(
                 "\n*** manufactureWeapon() function called +++");
     }
 
@@ -89,12 +89,12 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-         ErrorView.display(this.getClass().getName(),
+          this.console.println(
                  "\n*** saveGame() function called +++");
     }
 
     private void lookForItems() {
-         ErrorView.display(this.getClass().getName(),
+          this.console.println(
                  "\n*** lookForItems() function called +++");
     }
 }

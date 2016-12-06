@@ -9,16 +9,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import project.strangerThings.model.Location;
-import project.strangerThings.model.Player;
-import project.strangerThings.model.Question;
-import project.strangerThings.model.Scene;
-import project.strangerThings.model.Character;
-import project.strangerThings.model.Item;
-import project.strangerThings.model.Map;
 import project.strangerThings.model.Game;
+import project.strangerThings.model.Player;
 import project.strangerThings.view.ErrorView;
 import project.strangerThings.view.StartProgramView;
 
@@ -57,18 +49,20 @@ public class StrangerThings {
 
     public static void main(String[] args) {
         //create StartProgramViewOrig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
         
+        StartProgramView startProgramView;
         try {
             
             StrangerThings.inFile = new BufferedReader(new InputStreamReader(System.in));
             StrangerThings.outFile = new PrintWriter(System.out, true);
             String filePath = "log.txt";
             StrangerThings.logFile = new PrintWriter(filePath);
+            startProgramView = new StartProgramView();
             startProgramView.display();
         } catch (Throwable te){
             System.err.println(te.getMessage());
             te.printStackTrace();
+            startProgramView = new StartProgramView();
             startProgramView.display();
         }
          finally {
