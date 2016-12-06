@@ -49,14 +49,15 @@ public class HelpMenuView extends View {
                 this.upgradeWeapon();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return false;
     }
 
     private void goalOfGame() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* The three main characters Mike, Dustin, and Lucas are out on  *"
@@ -76,7 +77,7 @@ public class HelpMenuView extends View {
     }
 
     private void backstory() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* Stranger Things is an American science fiction horror web     *"
@@ -91,7 +92,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToMove() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* The characters will all be moving together as a team one      *"
@@ -103,7 +104,7 @@ public class HelpMenuView extends View {
     }
 
     private void inventoryList() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* The list of inventory on the map shows you what items         *"
@@ -115,7 +116,7 @@ public class HelpMenuView extends View {
     }
 
     private void upgradeWeapon() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* Throughout the game, objects for making weapons will be       *"

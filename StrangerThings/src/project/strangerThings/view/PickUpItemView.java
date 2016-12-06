@@ -58,34 +58,35 @@ public class PickUpItemView extends View{
                 this.allItems();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return true;
     }
 
     private void nails() {
-        System.out.println("\n***   nails has been added to your weapon  ***");
+        this.console.println("\n***   nails has been added to your weapon  ***");
     }
 
     private void barbedWire() {
-        System.out.println("\n***   barbed Wire has been added to your weapon  ***");
+        this.console.println("\n***   barbed Wire has been added to your weapon  ***");
     }
 
     private void glassShards() {
-        System.out.println("\n***   glass shards has been added to your weapon  ***");
+        this.console.println("\n***   glass shards has been added to your weapon  ***");
     }
 
     private void thorns() {
-        System.out.println("\n***   thorns has been added to your weapon  ***");
+        this.console.println("\n***   thorns has been added to your weapon  ***");
     }
 
     private void rocks() {
-        System.out.println("\n***   rocks has been added to your weapon  ***");
+        this.console.println("\n***   rocks has been added to your weapon  ***");
     }
 
     private void sharpenedPieceOfMetal() {
-        System.out.println("\n***   sharpened piece of Metal has been added to your weapon  ***");
+        this.console.println("\n***   sharpened piece of Metal has been added to your weapon  ***");
     }
 
     private void allItems() {

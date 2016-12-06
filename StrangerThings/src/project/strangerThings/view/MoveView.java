@@ -44,25 +44,30 @@ public class MoveView extends View {
                 this.west();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return false;
     }
 
     private void north() {
-        System.out.println("\n*** north() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** north() function called +++");
     }
 
     private void south() {
-        System.out.println("\n*** south() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** south() function called +++");
     }
 
     private void east() {
-        System.out.println("\n*** east() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** east() function called +++");
     }
 
     private void west() {
-        System.out.println("\n*** west() function called +++");
+       ErrorView.display(this.getClass().getName(),
+               "\n*** west() function called +++");
     }
 }

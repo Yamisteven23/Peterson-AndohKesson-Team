@@ -66,43 +66,44 @@ public class TheSchoolView extends View {
                 this.drumStick();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return true;
     }
 
     private void broom() {
-        System.out.println("\n***   broom selected  ***");
+      this.console.println("\n***   broom selected  ***");
 
     }
 
     private void hockeyStick() {
-        System.out.println("\n***   Hockey Stick selected  ***");
+        this.console.println("\n***   Hockey Stick selected  ***");
     }
 
     private void golfClub() {
-        System.out.println("\n***   Golf Club selected  ***");
+        this.console.println("\n***   Golf Club selected  ***");
     }
 
     private void lacrosseStick() {
-        System.out.println("\n***   Lacrosse Stick selected  ***");
+       this.console.println("\n***   Lacrosse Stick selected  ***");
     }
 
     private void cricketPaddle() {
-        System.out.println("\n***   Cricket Paddle selected  ***");
+        this.console.println("\n***   Cricket Paddle selected  ***");
     }
 
     private void baseballBat() {
-        System.out.println("\n***   Baseball Bat selected  ***");
+        this.console.println("\n***   Baseball Bat selected  ***");
     }
 
     private void tennisRacket() {
-        System.out.println("\n***   Tennis Racket selected  ***");
+        this.console.println("\n***   Tennis Racket selected  ***");
     }
 
     private void drumStick() {
-        System.out.println("\n***   Drum Stick selected  ***");
+        this.console.println("\n***   Drum Stick selected  ***");
     }
 
 }

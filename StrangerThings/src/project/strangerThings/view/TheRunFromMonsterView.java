@@ -36,16 +36,19 @@ class TheRunFromMonsterView extends View{
         long result = MapControl.runFromMonster(answer, distance);
 
         if (result == 0) {
-            System.out.println("\nToo Bad! You lost a life."); //Change this eventually
+            ErrorView.display(this.getClass().getName(),
+                    "\nToo Bad! You lost a life."); //Change this eventually
         } 
         else if (result == 1) {
-            System.out.println("\nCongrats! You got away from the monster.");
+            this.console.println("\nCongrats! You got away from the monster.");
             return false;
         } else if (result == -1) {
-            System.out.println("\nInvalid Distance input.");
+            ErrorView.display(this.getClass().getName(),
+                    "\nInvalid Distance input.");
             return false;
         }else if (result == -2) {
-            System.out.println("\nSorry! Too Slow, you lost a Life.");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry! Too Slow, you lost a Life.");
             return false;
         }
         return true;

@@ -56,7 +56,8 @@ public class GameMenuView extends View {
                 this.helpMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return false;
@@ -68,15 +69,18 @@ public class GameMenuView extends View {
     }
 
     private void checkInventory() {
-        System.out.println("\n*** checkInventory() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** checkInventory() function called +++");
     }
 
     private void viewMap() {
-        System.out.println("\n*** viewMap() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** viewMap() function called +++");
     }
 
     private void manufactureWeapon() {
-        System.out.println("\n*** manufactureWeapon() function called +++");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** manufactureWeapon() function called +++");
     }
 
     private void helpMenu() {
@@ -85,10 +89,12 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-         System.out.println("\n*** saveGame() function called +++");
+         ErrorView.display(this.getClass().getName(),
+                 "\n*** saveGame() function called +++");
     }
 
     private void lookForItems() {
-         System.out.println("\n*** lookForItems() function called +++");
+         ErrorView.display(this.getClass().getName(),
+                 "\n*** lookForItems() function called +++");
     }
 }

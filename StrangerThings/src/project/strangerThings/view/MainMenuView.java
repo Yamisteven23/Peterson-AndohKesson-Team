@@ -57,7 +57,8 @@ public class MainMenuView extends View {
                 this.pickItems();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Please Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid selection *** Please Try again");
                 break;
         }
         return false;
@@ -71,7 +72,8 @@ public class MainMenuView extends View {
     }
 
     private void restoreExistingGame() {
-        System.out.println("\n*** restoreExistingGame called ***");
+        ErrorView.display(this.getClass().getName(),
+                "\n*** restoreExistingGame called ***");
     }
 
     private void helpMenu() {

@@ -7,6 +7,7 @@ package project.strangerThings.model;
 
 import java.io.Serializable;
 import project.strangerThings.model.Location;
+import project.strangerThings.view.ErrorView;
 
 /**
  *
@@ -22,7 +23,8 @@ public class Map implements Serializable{
     
     public Map(int rowCount, int columnCount){
         if (columnCount < 1 || rowCount < 1){
-            System.out.println("The number of rows and columns must be > zero");
+            ErrorView.display(this.getClass().getName(),
+                              "The number of rows and columns must be > zero");
              return;
         }
        this.columnCount = columnCount;

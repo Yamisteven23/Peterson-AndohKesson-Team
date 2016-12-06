@@ -19,6 +19,7 @@ import project.strangerThings.model.Character;
 import project.strangerThings.model.Item;
 import project.strangerThings.model.Map;
 import project.strangerThings.model.Game;
+import project.strangerThings.view.ErrorView;
 import project.strangerThings.view.StartProgramView;
 
 /**
@@ -81,7 +82,8 @@ public class StrangerThings {
                 if (StrangerThings.logFile != null)
                     StrangerThings.logFile.close();
             } catch (IOException ex) {
-                System.out.println("\n*** Error closing files");
+                ErrorView.display("Stranger Things",
+                        "\n*** Error closing files");
                 return;
             }
             

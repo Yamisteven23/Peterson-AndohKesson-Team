@@ -17,6 +17,7 @@ import project.strangerThings.model.SceneType;
 import strangerthings.StrangerThings;
 import project.strangerThings.model.Character;
 import project.strangerThings.exceptions.MapControlException;
+import project.strangerThings.view.ErrorView;
 
 /**
  *
@@ -54,7 +55,8 @@ public class GameControl {
         try { 
            MapControl.moveCharactersToStartLocation(map);}
         catch (MapControlException me) {
-                   System.out.println("\n*** Error with the map ***");
+                   ErrorView.display("GameControl", 
+                           "\n*** Error with the map ***");
         }
           
        

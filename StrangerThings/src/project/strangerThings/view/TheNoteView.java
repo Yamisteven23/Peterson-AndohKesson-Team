@@ -39,23 +39,28 @@ public class TheNoteView extends View {
         long answer = 0;
        try{ answer = Long.parseLong(value);
         } catch (NumberFormatException nf){
-            System.out.println("\n*** Please enter a valid number ");
+            ErrorView.display(this.getClass().getName(),
+                    "\n*** Please enter a valid number ");
         }
         long result = MapControl.openTheShack(this.rn, this.rn2, answer);
 
         if (result == 0) {
-            System.out.println("\nCongrats! The Locked Opened!"); //Change this eventually
+            this.console.println("\nCongrats! The Locked Opened!"); //Change this eventually
         } else if (result == 2) {
-            System.out.println("\nYou put in the number but the lock didn't open!");
+            ErrorView.display(this.getClass().getName(),
+                    "\nYou put in the number but the lock didn't open!");
             return false;
         } else if (result == -1) {
-            System.out.println("\nThis is not a number on a padlock");
+            ErrorView.display(this.getClass().getName(),
+                    "\nThis is not a number on a padlock");
             return false;
         } else if (result == -2) {
-            System.out.println("\nRandom number 1 is invalid!");
+            ErrorView.display(this.getClass().getName(),
+                    "\nRandom number 1 is invalid!");
             return false;
         } else if (result == -3) {
-            System.out.println("\nRandom number 2 is invalid!");
+            ErrorView.display(this.getClass().getName(),
+                    "\nRandom number 2 is invalid!");
             return false;
         }
 

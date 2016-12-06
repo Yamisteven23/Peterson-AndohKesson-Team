@@ -36,27 +36,34 @@ class TheFightView extends View {
         long result = MapControl.fightMonster(answer, powerLevel, monsterHealth);
 
         if (result == 0) {
-            System.out.println("\nSorry, You Lost a Life!"); //Change this eventually
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, You Lost a Life!"); //Change this eventually
         } else if (result == 1) {
-            System.out.println("\nVictory! You defeated the monster");
+            this.console.println("\nVictory! You defeated the monster");
             return false;
         } else if (result == -1) {
-            System.out.println("\nSorry, not enough hits to defeat the monster. You Lost a Life.");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, not enough hits to defeat the monster. You Lost a Life.");
             return false;
         } else if (result == -2) {
-            System.out.println("\nSorry its impossible to swing that many times! You Lost a Life");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry its impossible to swing that many times! You Lost a Life");
             return false;
         } else if (result == -3) {
-            System.out.println("\nSorry, not enough power Level to defeat the monster. You Lost a Life.");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, not enough power Level to defeat the monster. You Lost a Life.");
             return false;
         } else if (result == -4) {
-            System.out.println("\nSorry, Invalid power Level input");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, Invalid power Level input");
             return false;
         } else if (result == -5) {
-            System.out.println("\nSorry, Invalid Monster Health input");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, Invalid Monster Health input");
             return false;
         } else if (result == -6) {
-            System.out.println("\nSorry, Monster Health can not be more than 70.");
+            ErrorView.display(this.getClass().getName(),
+                    "\nSorry, Monster Health can not be more than 70.");
             return false;
         }
         return true;

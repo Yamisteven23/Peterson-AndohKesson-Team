@@ -53,7 +53,8 @@ public class StartProgramView extends View {
     @Override
     public boolean doAction(String value) {
         if (value.length() < 2) {
-            System.out.println("\nInvalid player name;"
+            ErrorView.display(this.getClass().getName(),
+                    "\nInvalid player name;"
                     + "The name must be greater than one character in length");
             return false;
 
@@ -62,7 +63,8 @@ public class StartProgramView extends View {
         Player player = GameControl.createPlayer(value);
 
         if (player == null) { //if unseccessful
-            System.out.println("\nError creating the player.");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nError creating the player.");
             return false;
         }
         //display next view
@@ -71,7 +73,7 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n==============================================="
+        this.console.println("\n==============================================="
                 + "\n Welcome to Stanger Things! " + player.getName()
                 + "\n We wish you luck!"
                 + "\n==============================================="
