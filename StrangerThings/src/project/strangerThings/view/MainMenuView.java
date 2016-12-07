@@ -22,7 +22,8 @@ public class MainMenuView extends View {
                 + "\nN- New Game"
                 + "\nR- Restore existing game"
                 + "\nH- Help Menu"
-                + "\nS- Shack View"
+                + "\nS- Save Game"
+                + "\nSV- Shack View"
                 + "\nF- Fight Monster View"
                 + "\nB- School View"
                 + "\nP- Pick up items view"
@@ -44,7 +45,10 @@ public class MainMenuView extends View {
             case "H": //Help Menu
                 this.helpMenu();
                 break;
-            case "S": //Secret Shack Menu for testing
+            case "S": //Save Game
+                this.savegame();
+                break;    
+            case "SS": //Secret Shack Menu for testing
                 this.goToShack();
                 break;
             case "F": //Secret Fight Monster for testing
@@ -73,7 +77,19 @@ public class MainMenuView extends View {
 
     private void restoreExistingGame() {
          this.console.println(
-                "\n*** restoreExistingGame called ***");
+                "\n\nEnter the file path for the file where the game is to be saved.");
+         String filePath = this.getInput();
+         
+         try{
+             //start a saved game
+             GameControl.getSavedGame(filePath);
+         } catch (Exception ex) {
+             ErrorView.display("MainMenuView", ex.getMessage());
+         }
+         
+         //display the game menu
+         GameMenuView gameMenu = new GameMenuView();
+         gameMenu.display();
     }
 
     private void helpMenu() {
@@ -100,6 +116,19 @@ public class MainMenuView extends View {
     private void pickItems() {
         PickUpItemView pickItem = new PickUpItemView();
         pickItem.display();
+    }
+
+    private void savegame() {
+      // prompt for and get the name os the file to save the game in
+      this.console.println("\n\nEnter the file path for the file where the game is to be saved.");
+      String filePath = this.getInput();
+      
+      try{
+          //save the game to the specified file
+          GameControl.saveGame(StrangerThings.getCurrentGame(), filePath);
+      } catch (Exception ex){
+          ErrorView.display("MainMenuView", ex.getMessage());
+      }
     }
 
 }

@@ -6,7 +6,12 @@
 package project.strangerThings.control;
 
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import project.strangerThings.exceptions.GameControlException;
 import project.strangerThings.model.Game;
 import project.strangerThings.model.Item;
 import project.strangerThings.model.Location;
@@ -282,4 +287,32 @@ public class GameControl {
           items[1] = Item.GlassShard;
           items[2] = Item.Staples;
     }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException {
+       
+        try( FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame); //write the game object out to file
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) throws GameControlException {
+        
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); // read the game object from file
+        }
+       catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+       }
+    //close the output file
+    StrangerThings.setCurrentGame(game); //save
+    } 
 }
