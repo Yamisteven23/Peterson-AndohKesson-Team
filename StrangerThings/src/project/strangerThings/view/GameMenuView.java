@@ -5,7 +5,9 @@
  */
 package project.strangerThings.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import project.strangerThings.model.Item;
 import strangerthings.StrangerThings;
 import project.strangerThings.model.Location;
 
@@ -26,7 +28,6 @@ public class GameMenuView extends View {
                 + "\nS- Save Game                     |"
                 + "\nH- Help Menu                     |"
                 + "\nW- Manufacture Weapon            |"
-                + "\nL- Look for items                |"
                 + "\nX- Exit Game                     |"
                 + "\n----------------------------------");
     }
@@ -51,9 +52,6 @@ public class GameMenuView extends View {
             case "W": //Make Weapon
                 this.manufactureWeapon();
                 break;
-            case "L": //Look for items
-                this.lookForItems();
-                break;
             case "H": //Help Menu
                 this.helpMenu();
                 break;
@@ -71,15 +69,19 @@ public class GameMenuView extends View {
     }
 
     private void checkInventory() {
-        this.console.println(
-              "\n*** checkInventory() function called +++");
+       ArrayList<Item> inventory = StrangerThings.getCurrentGame().getPlayer().getPlayingCharacter().getInventoryList();
+       for (int i = 0; i < inventory.size(); i++){
+           Item items = inventory.get(i);
+        System.out.println("\n\tItem: " + items.getName() +
+                           "\n\tQuanity: " + items.getQuantity());
+        }
     }
 
     private void viewMap() {
         Location[][] locations = StrangerThings.getCurrentGame().getMap().getLocations();
         System.out.println("\n       Portal to the Upside Down");
         System.out.println("\n     0     1     2     3     4     5");
-        System.out.print("   -----------------------------------");
+        System.out.print("   ---------------------------------- ");
         for (int i = 0; i < 6; i++){
             System.out.print("\n " + i);
                  for (int j= 0; j < 6; j++){
@@ -93,7 +95,7 @@ public class GameMenuView extends View {
             System.out.print("|");
             
         }
-           System.out.print("\n-------------------------------------");
+           System.out.print("\n   ----------------------------------");
         }
      
     }
@@ -111,10 +113,5 @@ public class GameMenuView extends View {
     private void saveGame() {
           this.console.println(
                  "\n*** saveGame() function called +++");
-    }
-
-    private void lookForItems() {
-          this.console.println(
-                 "\n*** lookForItems() function called +++");
     }
 }
