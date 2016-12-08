@@ -6,6 +6,8 @@
 package project.strangerThings.view;
 
 import java.util.Scanner;
+import strangerthings.StrangerThings;
+import project.strangerThings.model.Location;
 
 /**
  *
@@ -74,8 +76,26 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        this.console.println(
-                "\n*** viewMap() function called +++");
+        Location[][] locations = StrangerThings.getCurrentGame().getMap().getLocations();
+        System.out.println("\n       Portal to the Upside Down");
+        System.out.println("\n     0     1     2     3     4     5");
+        System.out.print("   -----------------------------------");
+        for (int i = 0; i < 6; i++){
+            System.out.print("\n " + i);
+                 for (int j= 0; j < 6; j++){
+                 System.out.print("|");
+                 Location location = locations[i][j];
+                 if (location.getVisited()){
+                System.out.print(location.getScene().getMapSymbol());
+            } else{
+                System.out.print(" ?? ");
+            }
+            System.out.print("|");
+            
+        }
+           System.out.print("\n-------------------------------------");
+        }
+     
     }
 
     private void manufactureWeapon() {
