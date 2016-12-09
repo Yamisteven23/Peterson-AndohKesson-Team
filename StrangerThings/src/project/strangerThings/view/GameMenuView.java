@@ -5,9 +5,11 @@
  */
 package project.strangerThings.view;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Scanner;
 import project.strangerThings.control.GameControl;
+import project.strangerThings.model.Game;
 import project.strangerThings.model.Item;
 import strangerthings.StrangerThings;
 import project.strangerThings.model.Location;
@@ -29,6 +31,7 @@ public class GameMenuView extends View {
                 + "\nS- Save Game                     |"
                 + "\nH- Help Menu                     |"
                 + "\nW- Manufacture Weapon            |"
+                + "\nL- Locate me                     |"
                 + "\nX- Exit Game                     |"
                 + "\n----------------------------------");
     }
@@ -55,6 +58,9 @@ public class GameMenuView extends View {
                 break;
             case "H": //Help Menu
                 this.helpMenu();
+                break;
+            case "L": //Locate
+                this.locate();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -126,5 +132,13 @@ public class GameMenuView extends View {
       } catch (Exception ex){
           ErrorView.display("MainMenuView", ex.getMessage());
       }
+    }
+
+    private void locate() {
+        
+         Point location = StrangerThings.getCurrentGame().getCurrentCharacter().getCoordinates();
+         int x = location.x;
+         int y = location.y;
+        this.console.println("You are located at point: ( " + x + "," +y+ " )");
     }
 }
