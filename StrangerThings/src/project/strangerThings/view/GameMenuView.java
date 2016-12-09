@@ -7,6 +7,7 @@ package project.strangerThings.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import project.strangerThings.control.GameControl;
 import project.strangerThings.model.Item;
 import strangerthings.StrangerThings;
 import project.strangerThings.model.Location;
@@ -101,8 +102,13 @@ public class GameMenuView extends View {
     }
 
     private void manufactureWeapon() {
-         this.console.println(
-                "\n*** manufactureWeapon() function called +++");
+        
+        GameControl.createWeapon(StrangerThings.getCurrentGame().getCurrentCharacter());
+         
+        long power = StrangerThings.getCurrentGame().getPowerLevel();
+                
+        this.console.println("\n\tWeapon created. Power level: " + power);
+                                   
     }
 
     private void helpMenu() {
@@ -111,7 +117,14 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-          this.console.println(
-                 "\n*** saveGame() function called +++");
+          this.console.println("\n\nEnter the file path for the file where the game is to be saved.");
+      String filePath = this.getInput();
+      
+      try{
+          //save the game to the specified file
+          GameControl.saveGame(StrangerThings.getCurrentGame(), filePath);
+      } catch (Exception ex){
+          ErrorView.display("MainMenuView", ex.getMessage());
+      }
     }
 }

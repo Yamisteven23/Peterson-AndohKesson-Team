@@ -6,6 +6,7 @@
 package project.strangerThings.model;
 
 import java.io.Serializable;
+import project.strangerThings.model.Character;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Game implements Serializable{
     private Item[] inventory;
     private Player player;
     private Map map;
+    private Character currentCharacter;
+    private long powerLevel = 0;
 
     public Game() {
     }
@@ -80,6 +83,22 @@ public class Game implements Serializable{
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    public Character getCurrentCharacter() {
+        return currentCharacter;
+    }
+
+    public void setCurrentCharacter(Character currentCharacter) {
+        this.currentCharacter = currentCharacter;
+    }
+
+    public long getPowerLevel() {
+        return powerLevel;
+    }
+
+    public void setPowerLevel(long powerLevel) {
+        this.powerLevel = powerLevel;
     }
 
     
