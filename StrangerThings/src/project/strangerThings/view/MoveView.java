@@ -6,6 +6,14 @@
 package project.strangerThings.view;
 
 import java.util.Scanner;
+import java.awt.Point;
+import project.strangerThings.control.GameControl;
+import project.strangerThings.control.MapControl;
+import project.strangerThings.exceptions.MapControlException;
+import project.strangerThings.model.Game;
+import strangerthings.StrangerThings;
+import project.strangerThings.model.Location;
+import project.strangerThings.model.Character;
 
 /**
  *
@@ -22,7 +30,7 @@ public class MoveView extends View {
                 + "\nS- South                         |"
                 + "\nE- East                          |"
                 + "\nW- West                          |"
-                + "\nX- Exit Game                     |"
+                + "\nX- Exit Menu                     |"
                 + "\n----------------------------------");
     }
 
@@ -52,22 +60,60 @@ public class MoveView extends View {
     }
 
     private void north() {
-        this.console.println(
-                "\n*** north() function called +++");
+        Point location = StrangerThings.getCurrentGame().getCurrentCharacter().getCoordinates();
+        double x = location.getX();
+        double y = location.getY();
+        x -= 1;
+        location.setLocation(x, y);
+        Character mike = StrangerThings.getCurrentGame().getCurrentCharacter();
+        try{
+           MapControl.moveCharacterToLocation(mike, location);
+       } catch (MapControlException me){
+           System.out.println("\n*** having trouble moving tothat location");
+       }
     }
 
     private void south() {
-        this.console.println(
-                "\n*** south() function called +++");
-    }
+        Point location = StrangerThings.getCurrentGame().getCurrentCharacter().getCoordinates();
+        double x = location.getX();
+        double y = location.getY();
+        x += 1;
+        location.setLocation(x, y);
+        Character mike = StrangerThings.getCurrentGame().getCurrentCharacter();
+        try{
+           MapControl.moveCharacterToLocation(mike, location);
+       } catch (MapControlException me){
+           System.out.println("\n*** having trouble moving tothat location");
+       }
+           
+        
+          }
 
     private void east() {
-        this.console.println(
-                "\n*** east() function called +++");
+        Point location = StrangerThings.getCurrentGame().getCurrentCharacter().getCoordinates();
+        double x = location.getX();
+        double y = location.getY();
+        y += 1;
+        location.setLocation(x, y);
+        Character mike = StrangerThings.getCurrentGame().getCurrentCharacter();
+        try{
+           MapControl.moveCharacterToLocation(mike, location);
+       } catch (MapControlException me){
+           System.out.println("\n*** having trouble moving tothat location");
+       }
     }
 
     private void west() {
-        this.console.println(
-                "\n*** west() function called +++");
+        Point location = StrangerThings.getCurrentGame().getCurrentCharacter().getCoordinates();
+        double x = location.getX();
+        double y = location.getY();
+        y -= 1;
+        location.setLocation(x, y);
+        Character mike = StrangerThings.getCurrentGame().getCurrentCharacter();
+        try{
+           MapControl.moveCharacterToLocation(mike, location);
+       } catch (MapControlException me){
+           System.out.println("\n*** having trouble moving tothat location");
+       }
     }
 }

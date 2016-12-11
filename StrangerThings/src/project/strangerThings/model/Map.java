@@ -5,6 +5,7 @@
  */
 package project.strangerThings.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import project.strangerThings.model.Location;
 import project.strangerThings.view.ErrorView;
@@ -103,7 +104,11 @@ public class Map implements Serializable{
         this.locations = location;
     }
 
-    
+    public Location getLocation(Point coordinates){
+        Location currentSpot = new Location();
+        currentSpot = locations[(int)coordinates.getX()][(int)coordinates.getY()];
+        return currentSpot;
+    }
     
     
     

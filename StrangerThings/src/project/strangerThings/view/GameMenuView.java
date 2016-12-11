@@ -94,7 +94,10 @@ public class GameMenuView extends View {
                  for (int j= 0; j < 6; j++){
                  System.out.print("|");
                  Location location = locations[i][j];
-                 if (location.getVisited()){
+                 if (location.getCharacter() != null){
+                     System.out.print("x");
+                 }
+                 else if (location.getVisited()){
                 System.out.print(location.getScene().getMapSymbol());
             } else{
                 System.out.print(" ?? ");

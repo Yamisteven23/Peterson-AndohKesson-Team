@@ -16,6 +16,7 @@ public class Scene implements Serializable{
     private String description;
     private String mapSymbol;
     private Location location;
+    private String name;
 
     public Scene() {
     }
@@ -75,6 +76,14 @@ public class Scene implements Serializable{
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     

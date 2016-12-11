@@ -12,15 +12,18 @@ import project.strangerThings.model.SceneType;
 import strangerthings.StrangerThings;
 import project.strangerThings.model.Character;
 import java.awt.Point;
-
+import java.util.ArrayList;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.Location;
+import project.strangerThings.view.FightMonsterView;
+import project.strangerThings.view.TheSchoolView;
+import project.strangerThings.view.TheShackView;
 
 /**
  *
  * @author Isaac
  */
 public class MapControl {
-
-    
 
     public static long runFromMonster(long time, long distance) {
         /*
@@ -158,147 +161,190 @@ END*/
     }
 
     public static Map createMap() {
-        Map map = new Map(6,6);
-        
+        Map map = new Map(6, 6);
+
         Scene[] scenes = createScenes();
-        
+
         GameControl.assignScenesToLocations(map, scenes);
-        
-        
+
         return map;
     }
 
     static void moveCharactersToStartLocation(Map map) throws MapControlException {
         Character character = StrangerThings.getPlayer().getPlayingCharacter();
-        
-        Point startLocation = character.getCoordinates(); 
+
+        Point startLocation = character.getCoordinates();
         MapControl.moveCharacterToLocation(character, startLocation);
-        
+
     }
-    
+
     public static void moveCharacterToLocation(Character character, Point coordinates) throws MapControlException {
-     Map map = StrangerThings.getCurrentGame().getMap();
-     int newRow = coordinates.x;
-     int newColumn = coordinates.y;
-     
-     if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()){
-         throw new MapControlException("Can not move Character to location"
-                 + coordinates.x + ", " + coordinates.y
-                 + " because that location is outside "
-                 + " the bounds of the map.");
-     }
+        Map map = StrangerThings.getCurrentGame().getMap();
+        double newRow = coordinates.getX();
+        double newColumn = coordinates.getY();
+        
+        Point startLocation = character.getCoordinates();
+        Location currentSpot = map.getLocation(startLocation);
+        String name = currentSpot.getScene().getName();
+        if (name == "Shack" && !currentSpot.getVisited()){
+            TheShackView toShack = new TheShackView();
+            toShack.display();
+        } else if ( name == "School" && !currentSpot.getVisited()){
+            TheSchoolView toSchool = new TheSchoolView();
+            toSchool.display();
+        } else if (name == "Monster"){
+            FightMonsterView toMonster = new FightMonsterView();
+            toMonster.display();
+    } else
+        System.out.println(currentSpot.getScene().getDescription());
+        if (!currentSpot.getVisited()){
+            Item[] items = currentSpot.getPlacedItems();
+            ArrayList<Item> inventory = character.getInventoryList();
+            for (int i = 0; i < items.length; i++){
+                String description = items[i].getDescription();
+                boolean itemPresent = false;
+                
+            for (int j = 0; j < inventory.size(); j++){
+                Item list = inventory.get(j);
+               if (list.getDescription() == description){
+                   itemPresent = true;
+               } 
+             if (itemPresent){
+                 //add quantity
+             }  else{
+                 //add item
+             }
+            }
+            }
+                
+        }
+        currentSpot.setVisited(true);
+        if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()) {
+            throw new MapControlException("Can not move Character to location"
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + " the bounds of the map.");
+        }
 
-    
-    
     }
-
-
 
     private static Scene[] createScenes() {
-         Scene[] scenes = new Scene[SceneType.values().length];
-         
-         Scene startScene = new Scene();
-         startScene.setDescription(
-           "Now that your have grouped up with your friends it is time to start "
-         + "your investigation of the disappearance of your friend Will.The three "
-         + "of you decide that you need to search for supplies to defeat the monster.");
-         startScene.setMapSymbol("ST");
-         scenes[SceneType.start.ordinal()] = startScene;
-         
-         Scene finishScene = new Scene();
-         finishScene.setDescription(
-           "Congrats! You defeated the monster and found your firend Will! You meet "
-         + "up with Will at his house to have him tell you what happened. He tells "
-         + "you this crazy story of when he was at the lake and the monster came "
-         + "behind him. He was able to escape, but he was stuck in the monster's "
-         + "lair until you came to save him. He thanks you all for your valient efforts.");
-         finishScene.setMapSymbol("FN");
-         scenes[SceneType.finish.ordinal()] = finishScene;
-                  
-         Scene forestScene = new Scene();
-         forestScene.setDescription(
-           "All you see is trees around you. You decide to split up but stay close "
-         + "together so you don't get lost from each other. When you group back together "
-         + "you gather everything you three found useful for a weapon. You find a nail, "
-         + "a sharp thorn, and metal shard. which do you take?");
-         forestScene.setMapSymbol("^");
-         scenes[SceneType.forest.ordinal()] = forestScene;
-         
-         Scene governmentScene = new Scene();
-         governmentScene.setDescription(
-           "Oh no! the government has found you. They take you in a room seperately "
-         + "and scare you to your wits. You take a day to shake it off, but you lose "
-         + "a life.");
-         governmentScene.setMapSymbol("G");
-         scenes[SceneType.government.ordinal()] = governmentScene;
-         
-         Scene sheriffScene = new Scene();
-         sheriffScene.setDescription(
-           "You look to your right and you see the local sheriff's car pull up "
-         + "next to you. He gets out of the car and scolds you for being out late "
-         + "and tells you to get in the car. He takes each of you home. You lose "
-         + "a life.");
-         sheriffScene.setMapSymbol("**");
-         scenes[SceneType.sheriff.ordinal()] = sheriffScene;
-         
-         Scene monsterScene = new Scene();
-         monsterScene.setDescription(
-           "Finally the search for the monster is over. You will decide to fight "
-         + "the monster or to try and run away");
-         monsterScene.setMapSymbol("M");
-         scenes[SceneType.monster.ordinal()] = monsterScene;
-         
-         Scene shackScene = new Scene();
-         shackScene.setDescription(
-           "As you are walking in the forest you come across a shack. It looks like "
-         + "there can be something in there that can be used for your weapon");
-         shackScene.setMapSymbol("|^|");
-         scenes[SceneType.shack.ordinal()] = shackScene;
-         
-         Scene schoolScene = new Scene();
-         schoolScene.setDescription(
-           "During your travels you come across your school. You feel like you "
-         + "can find a good base item for your master weapon");
-         schoolScene.setMapSymbol("S");
-         scenes[SceneType.school.ordinal()] = schoolScene;
-                
-         Scene junkyardScene = new Scene();
-         junkyardScene.setDescription(
-           "You come across a junkyard. You look around and see that there is a "
-         + "lot of garbage around but you think that there could be items around here "
-         + "that you could use for your weapon. Your groups splits up and finds "
-         + "3 shards of glass, 5 thorns, and 3 shards of metal. What do you take?");
-         junkyardScene.setMapSymbol("J");
-         scenes[SceneType.junkyard.ordinal()] = junkyardScene;
-         
-         Scene forest2Scene = new Scene();
-         forest2Scene.setDescription(
-           "You look around you and you see trees. You hear a twig snap and you think "
-         + "that the monster may be near. After waiting a couple of seconds you think "
-         + "the sound was just in your head. You split up to find items for your weapon "
-         + "your group finds a line of barbed wire, a shard of glass, and a staple. "
-         + "what do you take?");
-         forest2Scene.setMapSymbol("^^");
-         scenes[SceneType.forest2.ordinal()] = forest2Scene;
-         
-         Scene forest3Scene = new Scene();
-         forest3Scene.setDescription(
-           "As you go deeper in the forest you feel a dark feeling around you "
-         + "you still decide to split up and your group finds a staple, a line of "
-         + "barbed wire, and a nail. What do you take?");
-         forest3Scene.setMapSymbol("^^^");
-         scenes[SceneType.forest3.ordinal()] = forest3Scene;
-         
-         Scene forest4Scene = new Scene();
-         forest4Scene.setDescription(
-           "You feel as though you are walking in a circle and going no where. "
-         + "You think you have seen the tree in front of you before and the bush "
-         + "to the right. But you continue on anyways and search for items for your "
-         + "weapon. Your group finds a shard of glass, a shard of metal, and a sharp "
-         + "thorn. What do you take?");
-         forest4Scene.setMapSymbol("^|^");
-         scenes[SceneType.forest4.ordinal()] = forest4Scene;
-         
-         return scenes;
+        Scene[] scenes = new Scene[SceneType.values().length];
+
+        Scene startScene = new Scene();
+        startScene.setDescription(
+                "Now that your have grouped up with your friends it is time to start "
+                + "\nyour investigation of the disappearance of your friend Will.The three "
+                + "\nof you decide that you need to search for supplies to defeat the monster.");
+        startScene.setMapSymbol(" ST ");
+        startScene.setName("Start");
+        scenes[SceneType.start.ordinal()] = startScene;
+
+        Scene finishScene = new Scene();
+        finishScene.setDescription(
+                "Congrats! You defeated the monster and found your firend Will! You meet "
+                + "up with Will at his house to have him tell you what happened. He tells "
+                + "you this crazy story of when he was at the lake and the monster came "
+                + "behind him. He was able to escape, but he was stuck in the monster's "
+                + "lair until you came to save him. He thanks you all for your valient efforts.");
+        finishScene.setMapSymbol(" FN ");
+        finishScene.setName("Finish");
+        scenes[SceneType.finish.ordinal()] = finishScene;
+
+        Scene forestScene = new Scene();
+        forestScene.setDescription(
+                "All you see is trees around you. You decide to split up but stay close "
+                + "together so you don't get lost from each other. When you group back together "
+                + "you gather everything you three found useful for a weapon. You find a nail, "
+                + "a sharp thorn, and metal shard. which do you take?");
+        forestScene.setMapSymbol(" ^^ ");
+        forestScene.setName("Forest");
+        scenes[SceneType.forest.ordinal()] = forestScene;
+
+        Scene governmentScene = new Scene();
+        governmentScene.setDescription(
+                "Oh no! the government has found you. They take you in a room seperately "
+                + "and scare you to your wits. You take a day to shake it off, but you lose "
+                + "a life.");
+        governmentScene.setMapSymbol(" G  ");
+        governmentScene.setName("Government");
+        scenes[SceneType.government.ordinal()] = governmentScene;
+
+        Scene sheriffScene = new Scene();
+        sheriffScene.setDescription(
+                "You look to your right and you see the local sheriff's car pull up "
+                + "next to you. He gets out of the car and scolds you for being out late "
+                + "and tells you to get in the car. He takes each of you home. You lose "
+                + "a life.");
+        sheriffScene.setMapSymbol(" ** ");
+        sheriffScene.setName("Sheriff");
+        scenes[SceneType.sheriff.ordinal()] = sheriffScene;
+
+        Scene monsterScene = new Scene();
+        monsterScene.setDescription(
+                "Finally the search for the monster is over. You will decide to fight "
+                + "the monster or to try and run away");
+        monsterScene.setMapSymbol(" M  ");
+        monsterScene.setName("Monster");
+        scenes[SceneType.monster.ordinal()] = monsterScene;
+
+        Scene shackScene = new Scene();
+        shackScene.setDescription(
+                "As you are walking in the forest you come across a shack. It looks like "
+                + "there can be something in there that can be used for your weapon");
+        shackScene.setMapSymbol(" SS ");
+        shackScene.setName("Shack");
+        scenes[SceneType.shack.ordinal()] = shackScene;
+
+        Scene schoolScene = new Scene();
+        schoolScene.setDescription(
+                "During your travels you come across your school. You feel like you "
+                + "can find a good base item for your master weapon");
+        schoolScene.setMapSymbol(" S  ");
+        schoolScene.setName("School");
+        scenes[SceneType.school.ordinal()] = schoolScene;
+
+        Scene junkyardScene = new Scene();
+        junkyardScene.setDescription(
+                "You come across a junkyard. You look around and see that there is a "
+                + "lot of garbage around but you think that there could be items around here "
+                + "that you could use for your weapon. Your groups splits up and finds "
+                + "3 shards of glass, 5 thorns, and 3 shards of metal. What do you take?");
+        junkyardScene.setMapSymbol(" J  ");
+        junkyardScene.setName("Junkyard");
+        scenes[SceneType.junkyard.ordinal()] = junkyardScene;
+
+        Scene forest2Scene = new Scene();
+        forest2Scene.setDescription(
+                "You look around you and you see trees. You hear a twig snap and you think "
+                + "that the monster may be near. After waiting a couple of seconds you think "
+                + "the sound was just in your head. You split up to find items for your weapon "
+                + "your group finds a line of barbed wire, a shard of glass, and a staple. "
+                + "what do you take?");
+        forest2Scene.setMapSymbol(" ^^ ");
+        forest2Scene.setName("Forest2");
+        scenes[SceneType.forest2.ordinal()] = forest2Scene;
+
+        Scene forest3Scene = new Scene();
+        forest3Scene.setDescription(
+                "As you go deeper in the forest you feel a dark feeling around you "
+                + "you still decide to split up and your group finds a staple, a line of "
+                + "barbed wire, and a nail. What do you take?");
+        forest3Scene.setMapSymbol(" ^^ ");
+        forest3Scene.setName("Forest3");
+        scenes[SceneType.forest3.ordinal()] = forest3Scene;
+
+        Scene forest4Scene = new Scene();
+        forest4Scene.setDescription(
+                "You feel as though you are walking in a circle and going no where. "
+                + "You think you have seen the tree in front of you before and the bush "
+                + "to the right. But you continue on anyways and search for items for your "
+                + "weapon. Your group finds a shard of glass, a shard of metal, and a sharp "
+                + "thorn. What do you take?");
+        forest4Scene.setMapSymbol(" ^^ ");
+        forest4Scene.setName("Forest4");
+        scenes[SceneType.forest4.ordinal()] = forest4Scene;
+
+        return scenes;
     }
 }
