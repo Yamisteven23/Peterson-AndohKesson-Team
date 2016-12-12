@@ -5,9 +5,13 @@
  */
 package project.strangerThings.view;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import project.strangerThings.control.MapControl;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.ItemEnum;
+import strangerthings.StrangerThings;
 
 /**
  *
@@ -45,7 +49,13 @@ public class TheNoteView extends View {
         long result = MapControl.openTheShack(this.rn, this.rn2, answer);
 
         if (result == 0) {
-            this.console.println("\nCongrats! The Locked Opened!"); //Change this eventually
+            ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+            Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.Dust.ordinal()].clone();
+            item.setQuantity(1);
+        inventory.add(item);
+            this.console.println("\nCongrats! The Locked Opened! You look inside and see a bucket "
+                                 +"\nof dust. You dip your weapon in the dust and it starts glowing "
+                                 +"\nyou believe this will enhance your weapon.");
         } else if (result == 2) {
             ErrorView.display(this.getClass().getName(),
                     "\nYou put in the number but the lock didn't open!");

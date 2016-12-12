@@ -141,6 +141,7 @@ public class GameControl {
 
         Item[] inventoryList = StrangerThings.getCurrentGame().getInventory();
 
+            
         Item[] locationItems = locations[0][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];

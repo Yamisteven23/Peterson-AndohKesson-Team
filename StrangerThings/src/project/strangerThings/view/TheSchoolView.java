@@ -5,6 +5,11 @@
  */
 package project.strangerThings.view;
 
+import java.util.ArrayList;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.ItemEnum;
+import strangerthings.StrangerThings;
+
 /**
  *
  * @author Yamisteven23
@@ -74,35 +79,67 @@ public class TheSchoolView extends View {
     }
 
     private void broom() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.Broom.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
       this.console.println("\n***   broom selected  ***");
 
     }
 
     private void hockeyStick() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.HockeyStick.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Hockey Stick selected  ***");
     }
 
     private void golfClub() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.GolfClub.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Golf Club selected  ***");
     }
 
     private void lacrosseStick() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.LacrosseStick.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
        this.console.println("\n***   Lacrosse Stick selected  ***");
     }
 
     private void cricketPaddle() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.CricketPaddle.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Cricket Paddle selected  ***");
     }
 
     private void baseballBat() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.BaseballBat.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Baseball Bat selected  ***");
     }
 
     private void tennisRacket() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.TennisRacket.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Tennis Racket selected  ***");
     }
 
     private void drumStick() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.DrumStick.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
         this.console.println("\n***   Drum Stick selected  ***");
     }
 

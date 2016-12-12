@@ -1,2 +1,0 @@
-project.strangerThings.view.MoveView-
-*** Invalid selection *** Please Try again

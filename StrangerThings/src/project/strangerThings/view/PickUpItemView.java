@@ -5,6 +5,13 @@
  */
 package project.strangerThings.view;
 
+import java.util.ArrayList;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.Character;
+import project.strangerThings.model.Item;
+import project.strangerThings.model.ItemEnum;
+import strangerthings.StrangerThings;
+
 /**
  *
  * @author Isaac
@@ -24,9 +31,8 @@ public class PickUpItemView extends View{
                 + "\n*  B- Barbed Wire                                               *"
                 + "\n*  G- Glass shards                                              *"
                 + "\n*  T- Thorns                                                    *"
-                + "\n*  R- Rocks                                                     *"
                 + "\n*  S- Sharpened piece of metal                                  *"
-                + "\n*  A- All items.                                                *"
+                + "\n*  SS- Staples                                                  *"
                 + "\n*                                                               *"
                 + "\n*****************************************************************");
     }
@@ -48,14 +54,11 @@ public class PickUpItemView extends View{
             case "T": //Thorns
                 this.thorns();
                 break;
-            case "R": //Rocks
-                this.rocks();
-                break;
             case "S": //Sharpened Piece of Metal
                 this.sharpenedPieceOfMetal();
                 break;
-            case "A": //Select all items in location
-                this.allItems();
+            case "SS": //Staples
+                this.Staples();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -66,31 +69,51 @@ public class PickUpItemView extends View{
     }
 
     private void nails() {
-        this.console.println("\n***   nails has been added to your weapon  ***");
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.Nail.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n***   nails has been added");
     }
 
     private void barbedWire() {
-        this.console.println("\n***   barbed Wire has been added to your weapon  ***");
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.BarbedWire.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n***   barbed Wire has been added");
     }
 
     private void glassShards() {
-        this.console.println("\n***   glass shards has been added to your weapon  ***");
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.GlassShard.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n***   glass shards has been added");
     }
 
     private void thorns() {
-        this.console.println("\n***   thorns has been added to your weapon  ***");
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.Thorn.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n***   thorns has been added");
     }
 
-    private void rocks() {
-        this.console.println("\n***   rocks has been added to your weapon  ***");
+   private void sharpenedPieceOfMetal() {
+       ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.SharpMetal.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n***   sharpened piece of Metal has been added");
     }
 
-    private void sharpenedPieceOfMetal() {
-        this.console.println("\n***   sharpened piece of Metal has been added to your weapon  ***");
-    }
-
-    private void allItems() {
-        System.out.println("\n***   all items has been added to your weapon  ***");
+    private void Staples() {
+        ArrayList<Item> inventory = StrangerThings.getCurrentGame().getCurrentCharacter().getInventoryList();
+        Item item = StrangerThings.getCurrentGame().getInventory()[ItemEnum.Staples.ordinal()].clone();
+        item.setQuantity(1);
+        inventory.add(item);
+        this.console.println("\n*** Staples added ");
     }
 
     
