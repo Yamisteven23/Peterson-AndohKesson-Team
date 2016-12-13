@@ -17,11 +17,12 @@ import project.strangerThings.model.Item;
 import project.strangerThings.model.ItemEnum;
 import project.strangerThings.model.Location;
 import project.strangerThings.view.FightMonsterView;
+import project.strangerThings.view.GovernmentView;
 import project.strangerThings.view.MoveView;
 import project.strangerThings.view.PickUpItemView;
+import project.strangerThings.view.SheriffView;
 import project.strangerThings.view.TheSchoolView;
 import project.strangerThings.view.TheShackView;
-
 
 /**
  *
@@ -186,27 +187,32 @@ END*/
         Map map = StrangerThings.getCurrentGame().getMap();
         double newRow = coordinates.getX();
         double newColumn = coordinates.getY();
-        
+
         Point startLocation = character.getCoordinates();
         Location currentSpot = map.getLocation(startLocation);
         String name = currentSpot.getScene().getName();
-        if (name == "Shack" && !currentSpot.getVisited()){
+        if (name == "Shack" && !currentSpot.getVisited()) {
             TheShackView toShack = new TheShackView();
             toShack.display();
-        } else if ( name == "School" && !currentSpot.getVisited()){
+        } else if (name == "School" && !currentSpot.getVisited()) {
             TheSchoolView toSchool = new TheSchoolView();
             toSchool.display();
-        } else if (name == "Monster"){
+        } else if (name == "Monster") {
             FightMonsterView toMonster = new FightMonsterView();
             toMonster.display();
-    } else
-        System.out.println(currentSpot.getScene().getDescription());
-        if (!currentSpot.getVisited() && name != "Start" && name != "Shack" && name != "School" && name != "Monster" && name != "Government" && name != "Sherriff"){
+        } else if (name == "Government") {
+            GovernmentView govern = new GovernmentView();
+        } else if (name == "Sheriff") {
+            SheriffView caught = new SheriffView();
+
+        } else {
+            System.out.println(currentSpot.getScene().getDescription());
+        }
+        if (!currentSpot.getVisited() && name != "Start" && name != "Shack" && name != "School" && name != "Monster" && name != "Government" && name != "Sheriff") {
             PickUpItemView viewPickUpMenu = new PickUpItemView();
             viewPickUpMenu.display();
         }
-      
-      
+
         currentSpot.setVisited(true);
         if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move Character to location"

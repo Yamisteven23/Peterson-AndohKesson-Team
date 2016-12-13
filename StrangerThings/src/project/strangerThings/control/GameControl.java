@@ -30,47 +30,47 @@ import project.strangerThings.view.ErrorView;
  * @author Yamisteven23
  */
 public class GameControl {
-
+    
     public static Player createPlayer(String playerName) {
         if (playerName == null) {
             return null;
         }
-
+        
         Player player = new Player();
         player.setName(playerName);
-
+        
         StrangerThings.setPlayer(player);
-
+        
         return player;
-
+        
     }
-
+    
     public static void createNewGame(Player player) {
         Game game = new Game();
         StrangerThings.setCurrentGame(game);
-
+        
         game.setPlayer(player);
-
+        
         Item[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
-
+        
         Character currentCharacters = GameControl.createNewCharacter(inventoryList);
         game.setCurrentCharacter(currentCharacters);
-
+        
         ArrayList<Item> backpack = new ArrayList<>();
-
+        
         Map map = MapControl.createMap();
         game.setMap(map);
-
+        
         try {
             MapControl.moveCharactersToStartLocation(map);
         } catch (MapControlException me) {
             ErrorView.display("GameControl",
                     "\n*** Error with the map ***");
         }
-
+        
     }
-
+    
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
@@ -109,9 +109,9 @@ public class GameControl {
         locations[5][3].setScene(scenes[SceneType.forest.ordinal()]);
         locations[5][4].setScene(scenes[SceneType.forest4.ordinal()]);
         locations[5][5].setScene(scenes[SceneType.forest2.ordinal()]);
-
+        
     }
-
+    
     private static Character createNewCharacter(Item[] gameInventory) {
         //create array of characters, create playable character, set name etc, create new inventory list (arraylist), add flashlight 
         //and shovel,assign playable character to position 0 in character list, create monster, set values, assign monsters to position 1 to character list
@@ -121,85 +121,84 @@ public class GameControl {
         mike.setDescription("Mike");
         mike.setNumLives(3);
         ArrayList<Item> inventoryList = new ArrayList<>();
-
+        
         Item item = gameInventory[ItemEnum.Shovel.ordinal()].clone();
         item.setQuantity(1);
         inventoryList.add(item);
-
+        
         item = gameInventory[ItemEnum.Flashlight.ordinal()].clone();
         item.setQuantity(1);
         inventoryList.add(item);
-
+        
         mike.setInventoryList(inventoryList);
         StrangerThings.getPlayer().setPlayingCharacter(mike);
         mike.setCoordinates(new Point(0, 0));
         return mike;
     }
-
+    
     private static void assignItemsToLocations(Map map) {
         Location[][] locations = map.getLocations();
-
+        
         Item[] inventoryList = StrangerThings.getCurrentGame().getInventory();
-
-            
+        
         Item[] locationItems = locations[0][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[0][2].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[0][4].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[0][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Dust.ordinal()];
-
+        
         locationItems = locations[1][0].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[1][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[1][2].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[1][3].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[1][4].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[1][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[2][0].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[2][2].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[2][3].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
@@ -212,111 +211,111 @@ public class GameControl {
         locationItems[8] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[9] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[10] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[2][4].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[2][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[3][0].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[3][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[3][2].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[3][3].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[3][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[4][0].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[4][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[4][3].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[4][4].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Staples.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Nail.ordinal()];
-
+        
         locationItems = locations[4][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[5][1].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[5][2].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
-
+        
         locationItems = locations[5][3].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.Nail.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.Thorn.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.SharpMetal.ordinal()];
-
+        
         locationItems = locations[5][4].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.SharpMetal.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Thorn.ordinal()];
-
+        
         locationItems = locations[5][5].getPlacedItems();
         locationItems[0] = inventoryList[ItemEnum.BarbedWire.ordinal()];
         locationItems[1] = inventoryList[ItemEnum.GlassShard.ordinal()];
         locationItems[2] = inventoryList[ItemEnum.Staples.ordinal()];
     }
-
+    
     public static void saveGame(Game currentGame, String filePath) throws GameControlException {
-
+        
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
-
+            
             output.writeObject(currentGame); //write the game object out to file
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
     }
-
+    
     public static void getSavedGame(String filePath) throws GameControlException {
-
+        
         Game game = null;
-
+        
         try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream input = new ObjectInputStream(fips);
-
+            
             game = (Game) input.readObject(); // read the game object from file
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
@@ -324,13 +323,13 @@ public class GameControl {
         //close the output file
         StrangerThings.setCurrentGame(game); //save
     }
-
+    
     public static Item[] createInventoryList() {
-
+        
         Item[] inventoryList = new Item[17];
-
+        
         Item item;
-
+        
         item = new Item("Shovel", "This is a shovel that Lucas brought with him. Use it to find items", "Start Item", 0, 1);
         inventoryList[0] = item;
         item = new Item("Flashlight", "This is a flashlight that Mike brought with him so you can see in the dark", "Start Item", 0, 1);
@@ -367,7 +366,7 @@ public class GameControl {
         inventoryList[16] = item;
         return inventoryList;
     }
-
+    
     public static long createWeapon(Character character) {
         ArrayList<Item> inventory = character.getInventoryList();
         long total = 0;
@@ -377,5 +376,16 @@ public class GameControl {
         Game game = StrangerThings.getCurrentGame();
         game.setPowerLevel(game.getPowerLevel() + total);
         return total;
+    }
+    
+    public static void checkLives(Long numLives) {
+        Long livesLeft = numLives;
+        
+        if (livesLeft > 0) {
+            return;
+        } else {
+            System.out.println("\nSorry you lost all your lives. Game over!");
+        }
+        System.exit(0);
     }
 }

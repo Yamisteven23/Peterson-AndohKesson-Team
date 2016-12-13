@@ -32,6 +32,7 @@ public class GameMenuView extends View {
                 + "\nH- Help Menu                     |"
                 + "\nW- Manufacture Weapon            |"
                 + "\nL- Locate me                     |"
+                + "\nN- Number of Lives Left          |"
                 + "\nX- Exit Game                     |"
                 + "\n----------------------------------");
     }
@@ -61,6 +62,9 @@ public class GameMenuView extends View {
                 break;
             case "L": //Locate
                 this.locate();
+                break;
+            case "N": //Number of lives
+                this.numLives();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -143,5 +147,11 @@ public class GameMenuView extends View {
          int x = location.x;
          int y = location.y;
         this.console.println("You are located at point: ( " + x + "," +y+ " )");
+    }
+
+    private void numLives() {
+        Long numLives = StrangerThings.getCurrentGame().getCurrentCharacter().getNumLives();
+        
+        this.console.println("You have " +numLives+ " lives left. Be careful!");
     }
 }

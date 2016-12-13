@@ -28,13 +28,14 @@ public class TheNoteView extends View {
         this.rn2 = (long) randomGenerator.nextInt(11);
         this.rn = (long) randomGenerator.nextInt(1979) + 22;
 
-        this.displayMessage = "\n*****************************************************************"
-                + "\n*                                                               *"
-                + "\n  A man has " + this.rn + " apples. He gives half of them to his mom   "
-                + "\n  and then gives " + this.rn2 + " to his brother. How many apples does "
-                + "\n  he have left?                                                 "
-                + "\n*                                                               *"
-                + "\n*****************************************************************";
+        this.displayMessage = 
+                  "\n************************************************************************"
+                + "\n*                                                                      *"
+                + "\n  A man has " + this.rn + " apples. He gives half of them to his mom   *"
+                + "\n  and then gives " + this.rn2 + " to his brother. How many apples does *"
+                + "\n  he have left?                                                        *"
+                + "\n*                                                                      *"
+                + "\n************************************************************************";
 
     }
 

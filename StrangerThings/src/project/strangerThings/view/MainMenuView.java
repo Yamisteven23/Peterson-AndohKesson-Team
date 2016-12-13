@@ -19,15 +19,11 @@ public class MainMenuView extends View {
                 + "\n----------------------------------"
                 + "\n|         Main Menu              |"
                 + "\n----------------------------------"
-                + "\nN- New Game"
-                + "\nR- Restore existing game"
-                + "\nH- Help Menu"
-                + "\nS- Save Game"
-                + "\nSV- Shack View"
-                + "\nF- Fight Monster View"
-                + "\nB- School View"
-                + "\nP- Pick up items view"
-                + "\nX- Exit Game"
+                + "\nN- New Game                      |"
+                + "\nR- Restore existing game         |"
+                + "\nH- Help Menu                     |"
+                + "\nS- Save Game                     |"
+                + "\nX- Exit Game                     |"
                 + "\n----------------------------------");
     }
 
@@ -48,18 +44,6 @@ public class MainMenuView extends View {
             case "S": //Save Game
                 this.savegame();
                 break;    
-            case "SS": //Secret Shack Menu for testing
-                this.goToShack();
-                break;
-            case "F": //Secret Fight Monster for testing
-                this.goFightMonster();
-                break;
-            case "B": //Secret Fight Monster for testing
-                this.goToSchool();
-                break;
-            case "P": //Secret Fight Monster for testing
-                this.pickItems();
-                break;
             default:
                 ErrorView.display(this.getClass().getName(),
                         "\n*** Invalid selection *** Please Try again");
@@ -95,27 +79,6 @@ public class MainMenuView extends View {
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
-    }
-
-    private void goToShack() {
-        TheShackView toShack = new TheShackView();
-        toShack.display();
-    }
-
-    private void goFightMonster() {
-        FightMonsterView toMonster = new FightMonsterView();
-        toMonster.display();
-
-    }
-
-    private void goToSchool() {
-        TheSchoolView toSchool = new TheSchoolView();
-        toSchool.display();
-    }
-
-    private void pickItems() {
-        PickUpItemView pickItem = new PickUpItemView();
-        pickItem.display();
     }
 
     private void savegame() {
