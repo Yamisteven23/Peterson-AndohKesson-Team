@@ -11,19 +11,86 @@ import project.strangerThings.model.Character;
 import project.strangerThings.model.Item;
 import project.strangerThings.model.ItemEnum;
 import strangerthings.StrangerThings;
-
+import project.strangerThings.control.MapControl;
 /**
  *
  * @author Isaac
  */
 public class PickUpItemView extends View{
 
-    public PickUpItemView() {
+    public PickUpItemView(String name) {
         
-         super("\n*****************************************************************"
+        if (name == "Forest"){
+            System.out.println("\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n* To continue to manufacture your weapon to defeat the monster, *"
-                + "\n* you can decide to pick any or all items in this location.     *"
+                + "\n* you can decide which item to pick from this location.         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*  N- Nails                                                     *"
+                + "\n*  T- Thorns                                                    *"
+                + "\n*  S- Sharpened piece of metal                                  *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************");
+        } else if (name == "Junkyard"){
+            System.out.println("\n*****************************************************************"
+                + "\n*                                                               *"
+                + "\n* To continue to manufacture your weapon to defeat the monster, *"
+                + "\n* you can decide which item to pick from this location.         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*  G- Glass shards                                              *"
+                + "\n*  T- Thorns                                                    *"
+                + "\n*  S- Sharpened piece of metal                                  *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************");
+        } else if (name == "Forest2"){
+            System.out.println("\n*****************************************************************"
+                + "\n*                                                               *"
+                + "\n* To continue to manufacture your weapon to defeat the monster, *"
+                + "\n* you can decide which item to pick from this location.         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*  B- Barbed Wire                                               *"
+                + "\n*  G- Glass shards                                              *"
+                + "\n*  SS- Staples                                                  *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************");
+        } else if (name == "Forest3"){
+            System.out.println("\n*****************************************************************"
+                + "\n*                                                               *"
+                + "\n* To continue to manufacture your weapon to defeat the monster, *"
+                + "\n* you can decide which item to pick from this location.         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*  N- Nails                                                     *"
+                + "\n*  B- Barbed Wire                                               *"
+                + "\n*  SS- Staples                                                  *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************");
+        } else {
+            System.out.println("\n*****************************************************************"
+                + "\n*                                                               *"
+                + "\n* To continue to manufacture your weapon to defeat the monster, *"
+                + "\n* you can decide which item to pick from this location.         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*  G- Glass shards                                              *"
+                + "\n*  T- Thorns                                                    *"
+                + "\n*  SS- Staples                                                  *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************");
+        }
+        
+     /*    super("\n*****************************************************************"
+                + "\n*                                                               *"
+                + "\n* To continue to manufacture your weapon to defeat the monster, *"
+                + "\n* you can decide which item to pick from this location.         *"
                 + "\n*                                                               *"
                 + "\n*                                                               *"
                 + "\n*                                                               *"
@@ -34,7 +101,7 @@ public class PickUpItemView extends View{
                 + "\n*  S- Sharpened piece of metal                                  *"
                 + "\n*  SS- Staples                                                  *"
                 + "\n*                                                               *"
-                + "\n*****************************************************************");
+                + "\n*****************************************************************");*/
     }
 
     @Override

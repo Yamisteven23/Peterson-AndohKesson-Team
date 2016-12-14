@@ -209,7 +209,7 @@ END*/
             System.out.println(currentSpot.getScene().getDescription());
         }
         if (!currentSpot.getVisited() && name != "Start" && name != "Shack" && name != "School" && name != "Monster" && name != "Government" && name != "Sheriff") {
-            PickUpItemView viewPickUpMenu = new PickUpItemView();
+            PickUpItemView viewPickUpMenu = new PickUpItemView(name);
             viewPickUpMenu.display();
         }
 
@@ -250,7 +250,7 @@ END*/
         forestScene.setDescription(
                 "All you see is trees around you. You decide to split up but stay close "
                 + "\ntogether so you don't get lost from each other. When you group back together "
-                + "\nyou gather everything you three found useful for a weapon. You find a nail, "
+                + "\nyou gather everything you find and put it in a pile. You find a nail, "
                 + "\na sharp thorn, and metal shard. which do you take?");
         forestScene.setMapSymbol(" ^^ ");
         forestScene.setName("Forest");
@@ -285,7 +285,7 @@ END*/
 
         Scene shackScene = new Scene();
         shackScene.setDescription(
-                "As you are walking in the forest you come across a shack. It looks like "
+                "As you are walking in the forest you come across the shack again. It looks like "
                 + "\nthere can be something in there that can be used for your weapon");
         shackScene.setMapSymbol(" SS ");
         shackScene.setName("Shack");
@@ -293,8 +293,7 @@ END*/
 
         Scene schoolScene = new Scene();
         schoolScene.setDescription(
-                "During your travels you come across your school. You feel like you "
-                + "\ncan find a good base item for your master weapon");
+                "You come back to your school, but you already have your base weapon ");
         schoolScene.setMapSymbol(" S  ");
         schoolScene.setName("School");
         scenes[SceneType.school.ordinal()] = schoolScene;
@@ -304,7 +303,7 @@ END*/
                 "You come across a junkyard. You look around and see that there is a "
                 + "\nlot of garbage around but you think that there could be items around here "
                 + "\nthat you could use for your weapon. Your groups splits up and finds "
-                + "\n3 shards of glass, 5 thorns, and 3 shards of metal. What do you take?");
+                + "\na shard of glass, a bushel thorns, and a shard of metal. What do you take?");
         junkyardScene.setMapSymbol(" J  ");
         junkyardScene.setName("Junkyard");
         scenes[SceneType.junkyard.ordinal()] = junkyardScene;
